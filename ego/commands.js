@@ -109,7 +109,7 @@ module.exports = {
   },
   "dragonNest" : {
     desc : "Calculate various in-game values for Dragon Nest. Use `dragonNest help` for detailed usage information.",
-    usage : "<critical/criticalDamage/defense/finalDamage> <value[%]/cap> [level]",
+    usage : "<critical/criticalDamage/defense/finalDamage> < <value[%]/cap> / HP P.Def M.Def > [level]",
     process : (args,respond) => {
       Dn.eval(args,respond);
     }

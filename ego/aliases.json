@@ -1,6 +1,6 @@
 {
   "addTrigger" : "addTrigger", "at" : "addTrigger",
-  "dragonNest" : "dragonNest", "dn" : "dragonNest",
+  "dragonNest" : "dragonNest", "dragonnest" : "dragonNest", "dn" : "dragonNest",
   "hello" : "hello", "hi" : "hello",
   "help" : "help", "man" : "help", "commands" : "help",
   "insult" : "insult",
