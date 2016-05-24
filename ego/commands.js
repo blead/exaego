@@ -33,6 +33,16 @@ module.exports = {
       respond(false,messages.join(""));
     }
   },
+  "triggers" : {
+    desc : "List all enabled triggers.",
+    usage : "",
+    process : (args,respond) => {
+      if(Triggers.prefix.length > 0)
+        respond(true,"Currently enabled trigger(s): `" + Triggers.prefix.join("`, `") + "`\n");
+      else
+        respond(true,"No trigger enabled.");
+    }
+  },
   "addTrigger" : {
     desc : "Add specified phrase(s) to the trigger list.",
     usage : "phrase1 [phrase2 phrase3 phrase4 ...]",

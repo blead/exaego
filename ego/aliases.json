@@ -4,5 +4,6 @@
   "hello" : "hello", "hi" : "hello",
   "help" : "help", "man" : "help", "commands" : "help",
   "insult" : "insult",
-  "removeTrigger" : "removeTrigger", "rt" : "removeTrigger"
+  "removeTrigger" : "removeTrigger", "rt" : "removeTrigger",
+  "triggers" : "triggers"
 }
