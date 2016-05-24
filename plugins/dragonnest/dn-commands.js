@@ -33,6 +33,7 @@ module.exports = {
       if(args.length==2) {
         messages.push("__**Dragon Nest**__\n\n");
         messages.push("Use the following subcommands with `<trigger>"+args[0]+" <subcommand>`.\n");
+        messages.push("Default level: `"+Constants.LEVEL+"`\n");
         messages.push("\n**Subcommands**: (`[...]`: optional parameters)\n");
         // list commands
         Object.keys(module.exports).forEach( (command) => {
