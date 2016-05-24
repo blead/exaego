@@ -1,7 +1,7 @@
 {
   "addTrigger" : "addTrigger", "at" : "addTrigger",
   "dragonNest" : "dragonNest", "dragonnest" : "dragonNest", "dn" : "dragonNest",
-  "hello" : "hello", "hi" : "hello",
+  "hello" : "hello", "hi" : "hello", "ควย" : "hello",
   "help" : "help", "man" : "help", "commands" : "help",
   "insult" : "insult",
   "removeTrigger" : "removeTrigger", "rt" : "removeTrigger",
