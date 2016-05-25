@@ -18,7 +18,8 @@ function isTrigger(message) {
 }
 
 // message: Message object
-// respond: reply function (@mention:{true/false},contentString)
+// respond: reply function (contentString,{options})
+// options: { mentionPrefix, mentionParse }
 exports.eval = (message,respond) => {
   if(User === null) console.log("Ego: User data not set");
   var args = isTrigger(message);
@@ -27,7 +28,7 @@ exports.eval = (message,respond) => {
     if(Commands[Aliases[args[0]]] != undefined) {
       Commands[Aliases[args[0]]].process(args,respond);
     }else{
-      respond(false,"Invalid command, use `help` for more information on commands.");
+      respond("Invalid command, use `help` for more information on commands.",{});
     }
   }
 }

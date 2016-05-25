@@ -30,7 +30,7 @@ module.exports = {
       }else{
         messages.push("The specified command is invalid.");
       }
-      respond(false,messages.join(""));
+      respond(messages.join(""),{});
     }
   },
   "triggers" : {
@@ -38,9 +38,9 @@ module.exports = {
     usage : "",
     process : (args,respond) => {
       if(Triggers.prefix.length > 0)
-        respond(true,"Currently enabled trigger(s): `" + Triggers.prefix.join("`, `") + "`\n");
+        respond("Currently enabled trigger(s): `" + Triggers.prefix.join("`, `") + "`\n",{mentionPrefix: true});
       else
-        respond(true,"No trigger enabled.");
+        respond("No trigger enabled.",{mentionPrefix: true});
     }
   },
   "addTrigger" : {
@@ -48,7 +48,7 @@ module.exports = {
     usage : "phrase1 [phrase2 phrase3 phrase4 ...]",
     process : (args,respond) => {
       if(args.length==1) {
-        respond(false,"No phrase specified.");
+        respond("No phrase specified.",{});
         return;
       }
       for(i=1;i<args.length;i++) {
@@ -63,7 +63,7 @@ module.exports = {
         if(e) console.log(e);
         else{
           console.log("New trigger phrase(s) added to triggers.json.");
-          respond(false,"New trigger phrase(s) added.");
+          respond("New trigger phrase(s) added.",{});
         }
       });
     }
@@ -73,7 +73,7 @@ module.exports = {
     usage : "phrase1 [phrase2 phrase3 phrase4 ...]",
     process : (args,respond) => {
       if(args.length==1) {
-        respond(false,"No phrase specified.");
+        respond("No phrase specified.",{});
         return;
       }
       for(i=1;i<args.length;i++) {
@@ -85,7 +85,7 @@ module.exports = {
         if(e) console.log(e);
         else{
           console.log("Trigger phrase(s) removed from triggers.json.");
-          respond(false,"Trigger phrase(s) removed.");
+          respond("Trigger phrase(s) removed.",{});
         }
       });
     }
@@ -94,7 +94,7 @@ module.exports = {
     desc : "Display a friendly greeting message.",
     usage : "",
     process : (args,respond) => {
-      respond(true,"ควย");
+      respond("ควย",{mentionPrefix: true});
     }
   },
   "insult" : {
@@ -108,10 +108,10 @@ module.exports = {
         }).on("end", () => {
           message = JSON.parse(message.join("")).insult;
           if(args.length==1) {
-            respond(true,message);
+            respond(message,{mentionPrefix: true});
           }else{
             message = args.slice(1).join(" ") + " " + message;
-            respond(false,message);
+            respond(message,{mentionParse: true});
           }
         })
       }).on("error", (e) => console.log);

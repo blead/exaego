@@ -7,6 +7,6 @@ exports.eval = (args,respond) => {
   if(Commands[Aliases[args[1]]] != undefined) {
     Commands[Aliases[args[1]]].process(args,respond);
   }else{
-    respond(false,"Invalid subcommand, use `"+args[0]+" help` for detailed usage information.");
+    respond("Invalid subcommand, use `"+args[0]+" help` for detailed usage information.",{});
   }
 }

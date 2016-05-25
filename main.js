@@ -13,11 +13,14 @@ bot.on("ready", () => {
   bot.setStatus("online",Config.playing).catch(error);
   Ego.setUserData(bot.user);
 }).on("message", (message) => {
-  Ego.eval(message, (mention,content) => {
-    if(mention) content = message.author.mention()+" "+content;
+  Ego.eval(message, (content,options) => {
+    if(options.mentionParse)
+      for(user of message.mentions)
+        content.replace("/@"+user.username+"/g",user.mention());
+    if(options.mentionPrefix) content = message.author.mention()+" "+content;
     bot.sendMessage(message.channel,content).catch(error);
   });
-}).on("messageUpdated", (before,after) => {
+// }).on("messageUpdated", (before,after) => {
   //do something
 }).on("error", error);
 
