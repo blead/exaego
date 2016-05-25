@@ -16,7 +16,7 @@ bot.on("ready", () => {
   Ego.eval(message, (content,options) => {
     if(options.mentionParse)
       for(user of message.mentions)
-        content.replace("/@"+user.username+"/g",user.mention());
+        content = content.replace(new RegExp("@"+user.username,"g"),user.mention());
     if(options.mentionPrefix) content = message.author.mention()+" "+content;
     bot.sendMessage(message.channel,content).catch(error);
   });
