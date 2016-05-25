@@ -27,8 +27,8 @@ exports.eval = (message,respond) => {
     args = args.split(" ");
     if(Commands[Aliases[args[0]]] != undefined) {
       Commands[Aliases[args[0]]].process(args,respond);
-    }else{
-      respond("Invalid command, use `help` for more information on commands.",{});
+    // }else{
+      // respond("Invalid command, use `help` for more information on commands.",{});
     }
   }
 }

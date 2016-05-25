@@ -169,6 +169,7 @@ module.exports = {
       var messages = [];
       messages.push("Level "+level+" defense:\n");
       messages.push("defense cap: `"+dec(defCap*Constants.MAX_DEFENSE)+"` (`"+Constants.MAX_DEFENSE*100+"%`)\n");
+      messages.push("HP: `"+rawHP+"`\n");
       messages.push("physical defense: `"+rawPDef+"` (`"+dec(percentPDef*100)+"%`)\n");
       messages.push("magic defense: `"+rawMDef+"` (`"+dec(percentMDef*100)+"%`)\n");
       messages.push("effective physical HP: `"+dec(effectivePHP)+"`\n");
