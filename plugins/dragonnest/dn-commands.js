@@ -39,7 +39,7 @@ module.exports = {
         Object.keys(module.exports).forEach( (command) => {
           messages.push("\t`"+args[0]+" "+command+" "+module.exports[command].usage+"`\n");
           messages.push("\t\t: "+module.exports[command].desc+"\n");
-        })
+        });
       }else if(module.exports[Aliases[args[2]]] != undefined) {
         if(args[2] != Aliases[args[2]]) {
           messages.push("Alias for `"+Aliases[args[2]]+"`\n");

@@ -1,0 +1,7 @@
+{
+  "add" : "add", "create" : "add", "store" : "add", "push" : "add", "set" : "add",
+  "help" : "help", "man" : "help", "commands" : "help", "subcommands" : "help",
+  "list" : "list", "all" : "list", "memos" : "list",
+  "modify" : "modify", "mod" : "modify", "change" : "modify",
+  "remove" : "remove", "rm" : "remove", "delete" : "remove", "del" : "remove", "pop" : "remove", "unset" : "remove"
+}

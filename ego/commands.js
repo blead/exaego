@@ -2,6 +2,7 @@ var Aliases = require("./aliases.json");
 var Dn = require("../plugins/dragonnest/dn-core.js");
 var Fs = require("fs");
 var Http = require("http");
+var Memo = require("../plugins/memo/memo-core.js");
 var Triggers = require("./triggers.json");
 
 module.exports = {
@@ -20,7 +21,7 @@ module.exports = {
         Object.keys(module.exports).forEach( (command) => {
           messages.push("\t`"+command+" "+module.exports[command].usage+"`\n");
           messages.push("\t\t: "+module.exports[command].desc+"\n");
-        })
+        });
       }else if(module.exports[Aliases[args[1]]] != undefined) {
         if(args[1] != Aliases[args[1]]) {
           messages.push("Alias for `"+Aliases[args[1]]+"`\n");
@@ -38,9 +39,9 @@ module.exports = {
     usage : "",
     process : (args,respond) => {
       if(Triggers.prefix.length > 0)
-        respond("Currently enabled trigger(s): `" + Triggers.prefix.join("`, `") + "`\n",{mentionPrefix: true});
+        respond("Currently enabled trigger(s): `" + Triggers.prefix.join("`, `") + "`\n",{});
       else
-        respond("No trigger enabled.",{mentionPrefix: true});
+        respond("No trigger enabled.",{});
     }
   },
   "addTrigger" : {
@@ -123,6 +124,12 @@ module.exports = {
     process : (args,respond) => {
       Dn.eval(args,respond);
     }
+  },
+  "memo" : {
+    desc : "Store text entries. Use `memo help` for detailed usage information.",
+    usage : "<subcommand>",
+    process : (args,respond) => {
+      Memo.eval(args,respond);
+    }
   }
-
 };
