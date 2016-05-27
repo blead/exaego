@@ -2,7 +2,7 @@ var Aliases = require("./dn-aliases.json")
 var Commands = require("./dn-commands.js");
 
 // args: array of arguments [0]: "dragonNest" [1+]: parameters
-// respond: reply function (@mention:{true/false},contentString)
+// respond: reply function, see ../core.js
 exports.eval = (args,respond) => {
   if(Commands[Aliases[args[1]]] != undefined) {
     Commands[Aliases[args[1]]].process(args,respond);
