@@ -4,7 +4,7 @@
   "hello" : "hello", "hi" : "hello", "ควย" : "hello",
   "help" : "help", "man" : "help", "commands" : "help",
   "insult" : "insult",
-  "memo" : "memo", "mem" : "memo", "memorandum" : "memo", "remember" : "memo", "note" : "memo"
+  "memo" : "memo", "mem" : "memo", "memorandum" : "memo", "remember" : "memo", "note" : "memo",
   "removeTrigger" : "removeTrigger", "rt" : "removeTrigger",
-  "triggers" : "triggers",
+  "triggers" : "triggers"
 }
