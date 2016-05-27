@@ -38,4 +38,4 @@ var web = Http.createServer( (request,response) => {
     "Content-Type" : "text/plain"
   });
   response.end(message);
-}).listen(8080, () => { console.log("Web server listening on port 8080"); });
+}).listen(process.env.OPENSHIFT_NODEJS_PORT | 8080, process.env.OPENSHIFT_NODEJS_IP | "127.0.0.1", () => { console.log("Web server listening"); });
