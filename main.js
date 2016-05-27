@@ -1,6 +1,7 @@
 var Config = require("./config.json");
 var Discord = require("discord.js");
 var Ego = require("./ego/core.js");
+var Http = require("http");
 
 var bot = new Discord.Client({autoReconnect: true});
 
@@ -28,3 +29,13 @@ bot.loginWithToken(Config.oauth2Token).then( (token) => {
   console.log("Login successful");
 }).catch(error);
 // For email/password login, use bot.login("email", "password");
+
+var web = Http.createServer( (request,response) => {
+  var message = "Redirecting to Github!"
+  response.writeHead(301,{
+    "Location" : "https://github.com/blead/exaego",
+    "Content-Length" : message.length,
+    "Content-Type" : "text/plain"
+  });
+  response.end(message);
+}).listen(80, () => { console.log("Listening on port 80."); });
