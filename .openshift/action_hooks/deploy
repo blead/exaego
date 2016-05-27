@@ -1,4 +1,4 @@
-echo Create symbolic links for configuration files...
+echo Creating symbolic links for configuration files
 ln -sf ${OPENSHIFT_DATA_DIR}/config.json ${OPENSHIFT_REPO_DIR}/config.json
 ln -sf ${OPENSHIFT_DATA_DIR}/ego/triggers.json ${OPENSHIFT_REPO_DIR}/ego/triggers.json
 echo Done
