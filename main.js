@@ -30,7 +30,7 @@ bot.loginWithToken(Config.oauth2Token).then( (token) => {
 }).catch(error);
 // For email/password login, use bot.login("email", "password");
 
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8000;
 var ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 
 var web = Http.createServer( (request,response) => {
@@ -41,4 +41,4 @@ var web = Http.createServer( (request,response) => {
     "Content-Type" : "text/plain"
   });
   response.end(message);
-}).listen(ip, port, () => { console.log("Web server listening on "+ip+":"+port); });
+}).listen(port, ip, () => { console.log("Web server listening on "+ip+":"+port); });
