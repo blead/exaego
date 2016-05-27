@@ -28,7 +28,7 @@ exports.eval = (message,respond) => {
     if(Commands[Aliases[args[0]]] != undefined) {
       Commands[Aliases[args[0]]].process(args,respond);
     } else if(message.isMentioned(User)) {
-      respond("Invalid command, use `help` for more information on commands.",{ mentionPrefix:true });
+      respond("Invalid command, use `@"+User.username+"` help` for more information on commands.",{ mentionPrefix:true });
     }
   }
 }
