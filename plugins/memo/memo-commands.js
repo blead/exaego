@@ -45,15 +45,17 @@ module.exports = {
         return;
       }
       if(Memo[args[2]] != undefined) {
-        respond("Entry **"+args[2]+"** already exists. Use `"+args[0]+" modify "+args[2]+"` instead.",{mentionPrefix: true});
+        respond("Entry `"+args[2]+"` already exists. Use `"+args[0]+" modify "+args[2]+"` instead.",{mentionPrefix: true});
+        return;
+      }
+      if(args[2].includes("`")) {
+        respond("Entry names cannot contain grave accent for formatting reasons. Please use a different name.",{mentionPrefix: true});
         return;
       }
       args[3] = args.slice(3).join(" ");
       Memo[args[2]] = args[3];
-      Fs.writeFile("./plugins/memo/memo-list.json",JSON.stringify(Memo,null,2),(e) => {
-        if(e) console.log(e);
-        else respond("Entry added.",{});
-      });
+      Fs.writeFileSync("./plugins/memo/memo-list.json",JSON.stringify(Memo,null,2));
+      respond("Entry added.",{});
     }
   },
   "remove" : {
@@ -66,15 +68,11 @@ module.exports = {
       }
       if(Memo[args[2]] != undefined) {
         var messages = [];
-        messages.push("The following entry will be removed.\n**"+args[2]+"** :\n\t"+Memo[args[2]]+"\n");
+        messages.push("The following entry will be removed.\n`"+args[2]+"` :\n\t"+Memo[args[2]]+"\n");
         delete Memo[args[2]];
-        Fs.writeFile("./plugins/memo/memo-list.json",JSON.stringify(Memo,null,2),(e) => {
-          if(e) console.log(e);
-          else {
-            messages.push("Entry removed.");
-            respond(messages.join(""),{});
-          }
-        });
+        Fs.writeFileSync("./plugins/memo/memo-list.json",JSON.stringify(Memo,null,2));
+        messages.push("Entry removed.");
+        respond(messages.join(""),{});
       } else {
         respond("Entry not found",{mentionPrefix: true});
       }
@@ -90,16 +88,12 @@ module.exports = {
       }
       if(Memo[args[2]] != undefined) {
         var messages = [];
-        messages.push("The following entry will be modified.\n**"+args[2]+"** :\n\t"+Memo[args[2]]+"\n");
+        messages.push("The following entry will be modified.\n`"+args[2]+"` :\n\t"+Memo[args[2]]+"\n");
         args[3] = args.slice(3).join(" ");
         Memo[args[2]] = args[3];
-        Fs.writeFile("./plugins/memo/memo-list.json",JSON.stringify(Memo,null,2),(e) => {
-          if(e) console.log(e);
-          else {
-            messages.push("Entry modified.");
-            respond(messages.join(""),{});
-          }
-        });
+        Fs.writeFileSync("./plugins/memo/memo-list.json",JSON.stringify(Memo,null,2));
+        messages.push("Entry modified.");
+        respond(messages.join(""),{});
       } else {
         respond("Entry not found",{mentionPrefix: true});
       }
@@ -114,7 +108,7 @@ module.exports = {
         messages.push("No entry found.");
       } else {
         Object.keys(Memo).forEach( (entry) => {
-          messages.push("**"+entry+"** :\n");
+          messages.push("`"+entry+"` :\n");
           messages.push("\t"+Memo[entry]+"\n");
         });
       }

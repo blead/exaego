@@ -60,13 +60,9 @@ module.exports = {
         return self.indexOf(val) === idx;
       } );
       // write to file
-      Fs.writeFile("./ego/triggers.json",JSON.stringify(Triggers,null,2),(e) => {
-        if(e) console.log(e);
-        else{
-          console.log("New trigger phrase(s) added to triggers.json.");
-          respond("New trigger phrase(s) added.",{});
-        }
-      });
+      Fs.writeFileSync("./ego/triggers.json",JSON.stringify(Triggers,null,2));
+      console.log("New trigger phrase(s) added to triggers.json.");
+      respond("New trigger phrase(s) added.",{});
     }
   },
   "removeTrigger" : {
@@ -82,13 +78,9 @@ module.exports = {
         if(idx != -1) Triggers.prefix.splice(idx,1);
       }
       // write to file
-      Fs.writeFile("./ego/triggers.json",JSON.stringify(Triggers,null,2),(e) => {
-        if(e) console.log(e);
-        else{
-          console.log("Trigger phrase(s) removed from triggers.json.");
-          respond("Trigger phrase(s) removed.",{});
-        }
-      });
+      Fs.writeFileSync("./ego/triggers.json",JSON.stringify(Triggers,null,2));
+      console.log("Trigger phrase(s) removed from triggers.json.");
+      respond("Trigger phrase(s) removed.",{});
     }
   },
   "hello" : {
