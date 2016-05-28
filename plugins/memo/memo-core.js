@@ -14,7 +14,7 @@ exports.eval = (args,respond) => {
   if(Commands[Aliases[args[1]]] != undefined) {
     Commands[Aliases[args[1]]].process(args,respond);
   } else if(Memo[args[1]] != undefined) {
-    respond("**"+args[1]+"** :\n\t"+Memo[args[1]],{mentionParse: true});
+    respond("`"+args[1]+"` :\n\t"+Memo[args[1]],{mentionParse: true});
   } else {
     respond("Entry not found/invalid subcommand, use `"+args[0]+" help` for detailed usage information.",{mentionPrefix: true});
   }
