@@ -14,7 +14,7 @@ bot.on("ready", () => {
   bot.setStatus("online",Config.playing).catch(error);
   Ego.setUserData(bot.user);
 }).on("message", (message) => {
-  Ego.eval(message, (content,options) => {
+  Ego.eval(message, message.channel.server.id, (content,options) => {
     if(options.mentionParse)
       for(user of message.mentions)
         content = content.replace(new RegExp("@"+user.username,"g"),user.mention());

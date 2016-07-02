@@ -9,12 +9,14 @@ module.exports = {
   "help" : {
     desc : "Display this help message. If a command is specified, give information about the command.",
     usage : "[command]",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       var messages = [];
       if(args.length==1) {
         messages.push("Use the following commands by sending `<trigger><command>`.\n");
-        if(Triggers.prefix.length > 0)
-          messages.push("Currently enabled trigger(s): `" + Triggers.prefix.join("`, `") + "`\n");
+        if(Triggers[identifier] === undefined)
+          Triggers[identifier] = Triggers.prefix;
+        if(Triggers[identifier].length > 0)
+          messages.push("Currently enabled trigger(s): `" + Triggers[identifier].join("`, `") + "`\n");
         messages.push("A direct mention i.e. `@Exaego <command>` always triggers the command.\n");
         messages.push("\n**Commands**: (`[...]`: optional parameters)\n");
         // list commands
@@ -37,9 +39,11 @@ module.exports = {
   "triggers" : {
     desc : "List all enabled triggers.",
     usage : "",
-    process : (args,respond) => {
-      if(Triggers.prefix.length > 0)
-        respond("Currently enabled trigger(s): `" + Triggers.prefix.join("`, `") + "`\n",{});
+    process : (args,identifier,respond) => {
+      if(Triggers[identifier] === undefined)
+          Triggers[identifier] = Triggers.prefix;
+      if(Triggers[identifier].length > 0)
+        respond("Currently enabled trigger(s): `" + Triggers[identifier].join("`, `") + "`\n",{});
       else
         respond("No trigger enabled.",{});
     }
@@ -47,16 +51,18 @@ module.exports = {
   "addTrigger" : {
     desc : "Add specified phrase(s) to the trigger list.",
     usage : "phrase1 [phrase2 phrase3 phrase4 ...]",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       if(args.length==1) {
         respond("No phrase specified.",{});
         return;
       }
+      if(Triggers[identifier] === undefined)
+          Triggers[identifier] = Triggers.prefix;
       for(i=1;i<args.length;i++) {
-        Triggers.prefix.push(args[i]);
+        Triggers[identifier].push(args[i]);
       }
       // filter non-unique triggers
-      Triggers.prefix = Triggers.prefix.filter( (val,idx,self) => {
+      Triggers[identifier] = Triggers[identifier].filter( (val,idx,self) => {
         return self.indexOf(val) === idx;
       } );
       // write to file
@@ -68,14 +74,16 @@ module.exports = {
   "removeTrigger" : {
     desc : "Remove specified phrase(s) from the trigger list.",
     usage : "phrase1 [phrase2 phrase3 phrase4 ...]",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       if(args.length==1) {
         respond("No phrase specified.",{});
         return;
       }
+      if(Triggers[identifier] === undefined)
+          Triggers[identifier] = Triggers.prefix;
       for(i=1;i<args.length;i++) {
-        var idx = Triggers.prefix.indexOf(args[i]);
-        if(idx != -1) Triggers.prefix.splice(idx,1);
+        var idx = Triggers[identifier].indexOf(args[i]);
+        if(idx != -1) Triggers[identifier].splice(idx,1);
       }
       // write to file
       Fs.writeFileSync("./ego/triggers.json",JSON.stringify(Triggers,null,2));
@@ -86,14 +94,14 @@ module.exports = {
   "hello" : {
     desc : "Display a friendly greeting message.",
     usage : "",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       respond("ควย",{mentionPrefix: true});
     }
   },
   "insult" : {
     desc : "Insult you the Elizabethan way.",
     usage : "[@target [@target2 @target3 @target4 ...]]",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       var message = [];
       Http.get("http://quandyfactory.com/insult/json", (res) => {
         res.on("data", (chunk) => {
@@ -113,15 +121,15 @@ module.exports = {
   "dragonNest" : {
     desc : "Calculate various in-game values for Dragon Nest. Use `dragonNest help` for detailed usage information.",
     usage : "<subcommand>",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       Dn.eval(args,respond);
     }
   },
   "memo" : {
     desc : "Store text entries. Use `memo help` for detailed usage information.",
     usage : "<subcommand>",
-    process : (args,respond) => {
-      Memo.eval(args,respond);
+    process : (args,identifier,respond) => {
+      Memo.eval(args,identifier,respond);
     }
   }
 };

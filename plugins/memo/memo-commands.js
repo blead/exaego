@@ -12,7 +12,7 @@ module.exports = {
   "help" : {
     desc : "Display this help message. If a subcommand is specified, give information about the subcommand.",
     usage : "[subcommand]",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       var messages = [];
       if(args.length==2) {
         messages.push("__**Memo**__\n\n");
@@ -39,12 +39,14 @@ module.exports = {
   "add" : {
     desc : "Add the specified entry.",
     usage : "<entry name> <content>",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       if(args.length < 4) {
         respond("Insufficient parameters. Use `"+args[0]+" help "+args[1]+"` for correct usage information.",{mentionPrefix: true});
         return;
       }
-      if(Memo[args[2]] != undefined) {
+      if(Memo[identifier] === undefined)
+        Memo[identifier] = {};
+      if(Memo[identifier][args[2]] != undefined) {
         respond("Entry `"+args[2]+"` already exists. Use `"+args[0]+" modify "+args[2]+"` instead.",{mentionPrefix: true});
         return;
       }
@@ -53,7 +55,7 @@ module.exports = {
         return;
       }
       args[3] = args.slice(3).join(" ");
-      Memo[args[2]] = args[3];
+      Memo[identifier][args[2]] = args[3];
       Fs.writeFileSync("./plugins/memo/memo-list.json",JSON.stringify(Memo,null,2));
       respond("Entry added.",{});
     }
@@ -61,15 +63,17 @@ module.exports = {
   "remove" : {
     desc : "Remove the specified entry.",
     usage : "<entry name>",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       if(args.length < 3) {
         respond("Insufficient parameters. Use `"+args[0]+" help "+args[1]+"` for correct usage information.",{mentionPrefix: true});
         return;
       }
-      if(Memo[args[2]] != undefined) {
+      if(Memo[identifier] === undefined)
+        Memo[identifier] = {};
+      if(Memo[identifier][args[2]] != undefined) {
         var messages = [];
-        messages.push("The following entry will be removed.\n`"+args[2]+"` :\n\t"+Memo[args[2]]+"\n");
-        delete Memo[args[2]];
+        messages.push("The following entry will be removed.\n`"+args[2]+"` :\n\t"+Memo[identifier][args[2]]+"\n");
+        delete Memo[identifier][args[2]];
         Fs.writeFileSync("./plugins/memo/memo-list.json",JSON.stringify(Memo,null,2));
         messages.push("Entry removed.");
         respond(messages.join(""),{});
@@ -81,16 +85,18 @@ module.exports = {
   "modify" : {
     desc : "Modify the specified entry.",
     usage : "<entry name> <new content>",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       if(args.length < 4) {
         respond("Insufficient parameters. Use `"+args[0]+" help "+args[1]+"` for correct usage information.",{mentionPrefix: true});
         return;
       }
-      if(Memo[args[2]] != undefined) {
+      if(Memo[identifier] === undefined)
+        Memo[identifier] = {};
+      if(Memo[identifier][args[2]] != undefined) {
         var messages = [];
-        messages.push("The following entry will be modified.\n`"+args[2]+"` :\n\t"+Memo[args[2]]+"\n");
+        messages.push("The following entry will be modified.\n`"+args[2]+"` :\n\t"+Memo[identifier][args[2]]+"\n");
         args[3] = args.slice(3).join(" ");
-        Memo[args[2]] = args[3];
+        Memo[identifier][args[2]] = args[3];
         Fs.writeFileSync("./plugins/memo/memo-list.json",JSON.stringify(Memo,null,2));
         messages.push("Entry modified.");
         respond(messages.join(""),{});
@@ -102,14 +108,16 @@ module.exports = {
   "list" : {
     desc : "List all entries.",
     usage : "",
-    process : (args,respond) => {
+    process : (args,identifier,respond) => {
       var messages = [];
-      if(Object.keys(Memo).length === 0) {
+      if(Memo[identifier] === undefined)
+        Memo[identifier] = {};
+      if(Object.keys(Memo[identifier]).length === 0) {
         messages.push("No entry found.");
       } else {
-        Object.keys(Memo).forEach( (entry) => {
+        Object.keys(Memo[identifier]).forEach( (entry) => {
           messages.push("`"+entry+"` :\n");
-          messages.push("\t"+Memo[entry]+"\n");
+          messages.push("\t"+Memo[identifier][entry]+"\n");
         });
       }
       respond(messages.join(""),{});

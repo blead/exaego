@@ -9,9 +9,11 @@ exports.setUserData = (data) => {
   User = data;
 }
 
-function isTrigger(message) {
+function isTrigger(message,identifier) {
   if(message.isMentioned(User)) return message.cleanContent.replace("@"+User.username,"").trim();
-  for(var trigger of Triggers.prefix) {
+  if(Triggers[identifier] === undefined)
+    Triggers[identifier] = Triggers.prefix;
+  for(var trigger of Triggers[identifier]) {
     if(message.cleanContent.startsWith(trigger)) return message.cleanContent.replace(trigger,"").trim();
   }
   return false;
@@ -20,13 +22,13 @@ function isTrigger(message) {
 // message: Message object
 // respond: reply function (contentString,{options})
 // options: { mentionPrefix, mentionParse }
-exports.eval = (message,respond) => {
+exports.eval = (message,identifier,respond) => {
   if(User === null) console.log("Ego: User data not set");
-  var args = isTrigger(message);
+  var args = isTrigger(message,identifier);
   if(args) {
     args = args.split(" ");
     if(Commands[Aliases[args[0]]] != undefined) {
-      Commands[Aliases[args[0]]].process(args,respond);
+      Commands[Aliases[args[0]]].process(args,identifier,respond);
     } else if(message.isMentioned(User)) {
       respond("Invalid command, use `@"+User.username+" help` for more information on commands.",{ mentionPrefix:true });
     }

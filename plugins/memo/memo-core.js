@@ -10,9 +10,9 @@ try {
 
 // args: array of arguments [0]: "memo" [1+]: parameters
 // respond: reply function, see ../core.js
-exports.eval = (args,respond) => {
+exports.eval = (args,identifier,respond) => {
   if(Commands[Aliases[args[1]]] != undefined) {
-    Commands[Aliases[args[1]]].process(args,respond);
+    Commands[Aliases[args[1]]].process(args,identifier,respond);
   } else if(Memo[args[1]] != undefined) {
     respond("`"+args[1]+"` :\n\t"+Memo[args[1]],{mentionParse: true});
   } else {
