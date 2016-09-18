@@ -10,7 +10,7 @@ exports.setUserData = (data) => {
 }
 
 function isTrigger(message,identifier) {
-  if(message.isMentioned(User)) return message.cleanContent.replace("@"+User.username,"").trim();
+  if(message.isMentioned(User)) return message.cleanContent.replace("@"+User.username,"").replace("#"+User.discriminator,"").trim();
   if(Triggers[identifier] === undefined)
     Triggers[identifier] = Triggers.prefix;
   for(var trigger of Triggers[identifier]) {
