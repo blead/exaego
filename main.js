@@ -6,7 +6,7 @@ var Http = require("http");
 var bot = new Discord.Client({autoReconnect: true});
 
 function error(e) {
-  console.log(e);
+  console.log(new Date().toISOString() + '\n' e);
 }
 
 bot.on("ready", () => {
