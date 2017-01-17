@@ -16,12 +16,12 @@ var Commands = {
     desc : 'Display this help message. If a command is specified, give information about the command.',
     usage : '[command]',
     process : (args,message,interface) => {
-      let guild = interface.message.getGuild(message);
+      let guild = interface.guild.getId(interface.message.getGuild(message));
       let responses = [];
       if(args.length==1) {
         responses.push('Use the following commands by sending `<trigger><command>`.\n');
         if(Triggers[guild] === undefined)
-          Triggers[guild] = Triggers.prefix;
+          Triggers[guild] = Triggers.defaults;
         if(Triggers[guild].length > 0)
           responses.push('Currently enabled trigger(s): `' + Triggers[guild].join('`, `') + '`\n');
         responses.push('A direct mention i.e. `@Exaego <command>` always triggers the command.\n');
@@ -47,9 +47,9 @@ var Commands = {
     desc : 'List all enabled triggers.',
     usage : '',
     process : (args,message,interface) => {
-      let guild = interface.message.getGuild(message);
+      let guild = interface.guild.getId(interface.message.getGuild(message));
       if(Triggers[guild] === undefined)
-          Triggers[guild] = Triggers.prefix;
+          Triggers[guild] = Triggers.defaults;
       if(Triggers[guild].length > 0)
         interface.channel.sendMessage(interface.message.getChannel(message),'Currently enabled trigger(s): `' + Triggers[guild].join('`, `') + '`\n');
       else
@@ -60,13 +60,13 @@ var Commands = {
     desc : 'Add specified phrase(s) to the trigger list.',
     usage : 'phrase1 [phrase2 phrase3 phrase4 ...]',
     process : (args,message,interface) => {
-      let guild = interface.message.getGuild(message);
+      let guild = interface.guild.getId(interface.message.getGuild(message));
       if(args.length==1) {
         interface.channel.sendMessage(interface.message.getChannel(message),'No phrase specified.');
         return;
       }
       if(Triggers[guild] === undefined)
-          Triggers[guild] = Triggers.prefix;
+          Triggers[guild] = Triggers.defaults;
       for(i=1;i<args.length;i++) {
         Triggers[guild].push(args[i]);
       }
@@ -84,13 +84,13 @@ var Commands = {
     desc : 'Remove specified phrase(s) from the trigger list.',
     usage : 'phrase1 [phrase2 phrase3 phrase4 ...]',
     process : (args,message,interface) => {
-      let guild = interface.message.getGuild(message);
+      let guild = interface.guild.getId(interface.message.getGuild(message));
       if(args.length==1) {
         interface('No phrase specified.',{});
         return;
       }
       if(Triggers[guild] === undefined)
-          Triggers[guild] = Triggers.prefix;
+          Triggers[guild] = Triggers.defaults;
       for(i=1;i<args.length;i++) {
         let idx = Triggers[guild].indexOf(args[i]);
         if(idx != -1) Triggers[guild].splice(idx,1);

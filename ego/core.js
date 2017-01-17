@@ -23,7 +23,7 @@ function eval(message,interface) {
 
 function getContent(message,interface) {
   let author = interface.message.getAuthor(message);
-  let guild = interface.message.getGuild(message);
+  let guild = interface.guild.getId(interface.message.getGuild(message));
 
   if(interface.user.isBot(author) || interface.user.getId(author) === interface.user.getId(interface.user.SELF))
     return '';
