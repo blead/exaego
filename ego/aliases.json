@@ -4,6 +4,7 @@
   "hello" : "hello", "hi" : "hello", "ควย" : "hello",
   "help" : "help", "man" : "help", "commands" : "help",
   "insult" : "insult",
+  "fuck" : "fuck", "f" : "fuck", "fuckinate" : "fuck", "fucking" : "fuck",
   "memo" : "memo", "mem" : "memo", "memorandum" : "memo", "remember" : "memo", "note" : "memo",
   "removeTrigger" : "removeTrigger", "rt" : "removeTrigger",
   "triggers" : "triggers"

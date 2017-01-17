@@ -1,43 +1,71 @@
-var Config = require("./config.json");
-var Discord = require("discord.js");
-var Ego = require("./ego/core.js");
-var Http = require("http");
+const Config = require('./config.json');
+const Discord = require('discord.js');
+const Ego = require('./ego/core.js');
+const Http = require('http');
 
-var bot = new Discord.Client({autoReconnect: true});
+function log(message) {
+  console.log(new Date().toISOString() + " : " + message);
+}
 
-bot.on("ready", () => {
-  console.log("Client ready");
-  bot.setStatus("online",Config.playing).catch(console.log);
-  Ego.init({
-    user: bot.user,
-    respond: (content,message,options) => {
-      if(options.mentionParse)
-        for(user of message.mentions)
-          content = content.replace(new RegExp("@"+user.username,"g"),user.mention());
-      if(options.mentionPrefix) content = message.author.mention()+" "+content;
-      bot.sendMessage(message.channel,content).catch(console.log);
+var discord = new Discord.Client();
+var discordEgo;
+
+discord.login(Config.oauth2Token).then( () => {
+  log('Login successful');
+}).catch(log);
+
+discord.on('ready', () => {
+  discord.user.setGame(Config.playing).catch(log);
+  log('client ready');
+  // var discordEgo = new Ego({
+  //   user: discord.user,
+  //   respond: (content,message,options) => {
+  //     if(options.mentionParse)
+  //       for(user of message.mentions)
+  //         content = content.replace(new RegExp('@'+user.username,'g'),user.mention());
+  //     if(options.mentionPrefix) content = message.author.mention()+' '+content;
+  //     discord.sendMessage(message.channel,content).catch(log);
+  //   }
+  // });
+  discordEgo = new Ego({
+    channel: {
+      sendMessage: (channel,content) => channel.sendMessage(content)
+    },
+    guild: {
+      getId: guild => guild.id
+    },
+    message: {
+      getAuthor: message => message.author,
+      getChannel: message => message.channel,
+      getCleanContent: message => message.cleanContent,
+      getGuild: message => message.guild,
+      getUserMentions: message => message.mentions.users,
+      isMentioned: (message,user) => message.isMentioned(user),
+      replaceUserMentions: (message,content) => {
+        message.mentions.users.forEach( user => { content = content.replace(new RegExp('@?' + user.username + '(#' + user.id + ')?','g'),user.toString()) } );
+        return content;
+      },
+      reply: (message,content) => message.channel.sendMessage(message.author.toString() + ' ' + content)
+    },
+    user: {
+      SELF: discord.user,
+      getId: user => user.id,
+      getUsername : user => user.username,
+      isBot: user => user.bot,
+      toString: user => user.toString()
     }
   });
-}).on("message", (message) => {
-  Ego.eval(message, message.channel.server.id);
-// }).on("messageUpdated", (before,after) => {
-  // do something
-}).on("error", console.log);
-
-bot.loginWithToken(Config.oauth2Token).then( (token) => {
-  console.log("Login successful");
-}).catch(console.log);
-// For email/password login, use bot.login("email", "password");
+}).on('message', message => discordEgo.message(message)).on('warn', log).on('error', log);
 
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8000;
-var ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 var web = Http.createServer( (request,response) => {
-  var message = "Redirecting to Github!"
+  var message = 'Redirecting to Github!'
   response.writeHead(301,{
-    "Location" : "https://github.com/blead/exaego",
-    "Content-Length" : message.length,
-    "Content-Type" : "text/plain"
+    'Location' : 'https://github.com/blead/exaego',
+    'Content-Length' : message.length,
+    'Content-Type' : 'text/plain'
   });
   response.end(message);
-}).listen(port, ip, () => { console.log("Web server listening on "+ip+":"+port); });
+}).listen(port, ip, () => { log('web server listening on '+ip+':'+port); });

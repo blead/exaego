@@ -2,7 +2,7 @@
   "name": "exaego",
   "version": "0.0.1",
   "description": "simple discord bot",
-  "private" : true,
+  "private": true,
   "main": "main.js",
   "scripts": {
     "start": "node main.js"
@@ -10,6 +10,9 @@
   "author": "blead",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^7.0.1"
+    "discord.js": "^11.0.0",
+    "erlpack": "github:hammerandchisel/erlpack#master",
+    "node-opus": "^0.2.4",
+    "uws": "^0.12.0"
   }
 }
