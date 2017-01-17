@@ -17,16 +17,6 @@ discord.login(Config.oauth2Token).then( () => {
 discord.on('ready', () => {
   discord.user.setGame(Config.playing).catch(log);
   log('client ready');
-  // var discordEgo = new Ego({
-  //   user: discord.user,
-  //   respond: (content,message,options) => {
-  //     if(options.mentionParse)
-  //       for(user of message.mentions)
-  //         content = content.replace(new RegExp('@'+user.username,'g'),user.mention());
-  //     if(options.mentionPrefix) content = message.author.mention()+' '+content;
-  //     discord.sendMessage(message.channel,content).catch(log);
-  //   }
-  // });
   discordEgo = new Ego({
     channel: {
       sendMessage: (channel,content) => channel.sendMessage(content)
