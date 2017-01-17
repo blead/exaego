@@ -1,6 +1,6 @@
 const Aliases = require('./aliases.json');
 const Commands = require('./commands.js');
-const Triggers = require('./triggers.json');
+var Triggers = require('./triggers.json');
 
 function Ego(interface) {
   this.interface = interface;

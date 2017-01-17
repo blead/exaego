@@ -1,5 +1,5 @@
-var Aliases = require('./memo-aliases.json');
-var Fs = require('fs');
+const Aliases = require('./memo-aliases.json');
+const Fs = require('fs');
 try {
     var Memo = require('./memo-list.json');
 } catch (e) {

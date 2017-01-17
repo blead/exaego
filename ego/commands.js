@@ -1,8 +1,8 @@
-var Aliases = require('./aliases.json');
-var Dn = require('../plugins/dragonnest/dn-core.js');
-var Fs = require('fs');
-var Http = require('http');
-var Memo = require('../plugins/memo/memo-core.js');
+const Aliases = require('./aliases.json');
+const Dn = require('../plugins/dragonnest/dn-core.js');
+const Fs = require('fs');
+const Http = require('http');
+const Memo = require('../plugins/memo/memo-core.js');
 var Triggers = require('./triggers.json');
 
 

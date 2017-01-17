@@ -1,5 +1,5 @@
-var Aliases = require('./dn-aliases.json');
-var Constants = require('./dn-constants.json');
+const Aliases = require('./dn-aliases.json');
+const Constants = require('./dn-constants.json');
 
 function parseSuffix(arg) {
   let multiplier = 1;
