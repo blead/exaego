@@ -150,7 +150,7 @@ var Commands = {
         res.on('data', (chunk) => {
           responses.push(chunk);
         }).on('end', () => {
-          responses = JSON.parse(responses.join('')).response;
+          responses = decodeURIComponent(JSON.parse(responses.join('')).response);
           responses = interface.message.replaceUserMentions(message,responses);
           interface.channel.sendMessage(interface.message.getChannel(message),responses);
         });
