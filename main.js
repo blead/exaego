@@ -19,7 +19,9 @@ discord.on('ready', () => {
   log('client ready');
   discordEgo = new Ego({
     channel: {
-      sendMessage: (channel,content) => channel.sendMessage(content)
+      sendMessage: (channel,content) => channel.sendMessage(content),
+      startTyping: channel => channel.startTyping(),
+      stopTyping: channel => channel.stopTyping(true)
     },
     guild: {
       getId: guild => guild.id

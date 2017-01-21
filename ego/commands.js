@@ -113,11 +113,13 @@ var Commands = {
     usage : '[@target [@target2 @target3 @target4 ...]]',
     process : (args,message,interface) => {
       let responses = [];
+      interface.channel.startTyping(interface.message.getChannel(message));
       Http.get('http://quandyfactory.com/insult/json', (res) => {
         res.on('data', (chunk) => {
           responses.push(chunk);
         }).on('end', () => {
           responses = JSON.parse(responses.join('')).insult;
+          interface.channel.stopTyping(interface.message.getChannel(message));
           if(args.length==1) {
             interface.message.reply(responses);
           }else{
@@ -146,12 +148,14 @@ var Commands = {
         return;
       }
       let responses = [];
+      interface.channel.startTyping(interface.message.getChannel(message));
       Http.get('http://fuckinator.herokuapp.com/fuckinate?query=' + encodeURIComponent(args.slice(1).join(' ')), (res) => {
         res.on('data', (chunk) => {
           responses.push(chunk);
         }).on('end', () => {
           responses = decodeURIComponent(JSON.parse(responses.join('')).response);
           responses = interface.message.replaceUserMentions(message,responses);
+          interface.channel.stopTyping(interface.message.getChannel(message));
           interface.channel.sendMessage(interface.message.getChannel(message),responses);
         });
       }).on('error', log);
