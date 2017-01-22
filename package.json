@@ -13,6 +13,7 @@
     "discord.js": "^11.0.0",
     "erlpack": "github:hammerandchisel/erlpack#master",
     "node-opus": "^0.2.4",
+    "opusscript": "0.0.1",
     "uws": "^0.12.0"
   }
 }
