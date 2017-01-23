@@ -29,15 +29,15 @@ function getContent(message,interface) {
     return '';
 
   if(guild) {
-    let cleanContent = interface.message.getCleanContent(message);
+    let content = interface.message.getContent(message);
     if(interface.message.isMentioned(message,interface.user.SELF)) {
       let regex = new RegExp('@?' + interface.user.getUsername(interface.user.SELF) + '(#' + interface.user.getId(interface.user.SELF) + ')?');
-      return cleanContent.replace(regex,'').trim();
+      return content.replace(regex,'').trim();
     }
     if(Triggers[guild] === undefined)
       Triggers[guild] = Triggers.defaults;
     for(let trigger of Triggers[guild])
-      if(cleanContent.startsWith(trigger)) return cleanContent.replace(trigger,'').trim();
+      if(content.startsWith(trigger)) return content.replace(trigger,'').trim();
   } else {
     // DM
   }

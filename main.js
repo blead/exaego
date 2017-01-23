@@ -29,7 +29,7 @@ discord.on('ready', () => {
     message: {
       getAuthor: message => message.author,
       getChannel: message => message.channel,
-      getCleanContent: message => message.cleanContent,
+      getContent: message => message.content,
       getGuild: message => message.guild,
       getUserMentions: message => message.mentions.users,
       isMentioned: (message,user) => message.isMentioned(user),
