@@ -101,6 +101,24 @@ var Commands = {
       interface.channel.sendMessage(interface.message.getChannel(message),'Trigger phrase(s) removed.');
     }
   },
+  'avatar' : {
+    desc : 'Display the user\'s avatar. If another user is mentioned, display the specified user\'s avatar.',
+    usage : '[@user]',
+    process : (args,message,interface) => {
+      let user = interface.message.getAuthor(message);
+      interface.message.getUserMentions(message).forEach( (userMention) => { user = userMention } );
+      let url = interface.user.getAvatarURL(user);
+      if(url) {
+        let embed = interface.embed.create();
+        interface.embed.setTitle(embed,interface.user.toString(user) + '\'s avatar');
+        interface.embed.setDescription(embed,url);
+        interface.embed.setImageURL(embed,url);
+        interface.channel.sendEmbed(interface.message.getChannel(message),embed);
+      } else {
+        interface.message.reply(message,'Unable to get the specified user\'s avatar.');
+      }
+    }
+  },
   'hello' : {
     desc : 'Display a friendly greeting message.',
     usage : '',

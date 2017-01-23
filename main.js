@@ -19,9 +19,16 @@ discord.on('ready', () => {
   log('client ready');
   discordEgo = new Ego({
     channel: {
+      sendEmbed: (channel,embed) => channel.sendEmbed(embed),
       sendMessage: (channel,content) => channel.sendMessage(content),
       startTyping: channel => channel.startTyping(),
       stopTyping: channel => channel.stopTyping(true)
+    },
+    embed: {
+      create: () => new Discord.RichEmbed(),
+      setTitle: (embed,title) => embed.setTitle(title),
+      setDescription: (embed,description) => embed.setDescription(description),
+      setImageURL: (embed,url) => embed.setImage(url)
     },
     guild: {
       getId: guild => guild.id
@@ -40,7 +47,8 @@ discord.on('ready', () => {
       reply: (message,content) => message.channel.sendMessage(message.author.toString() + ' ' + content)
     },
     user: {
-      SELF: discord.user,
+      self: () => discord.user,
+      getAvatarURL: user => user.avatarURL,
       getId: user => user.id,
       getUsername : user => user.username,
       isBot: user => user.bot,

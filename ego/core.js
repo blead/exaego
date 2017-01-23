@@ -16,7 +16,7 @@ function eval(message,interface) {
     let args = content.split(' ');
     if(Commands[Aliases[args[0]]] != undefined)
       Commands[Aliases[args[0]]].process(args,message,interface);
-    else if(interface.message.isMentioned(message,interface.user.SELF))
+    else if(interface.message.isMentioned(message,interface.user.self()))
       interface.message.reply(message,'Invalid command, use `help` for more information on commands.');
   }
 }
@@ -25,13 +25,13 @@ function getContent(message,interface) {
   let author = interface.message.getAuthor(message);
   let guild = interface.guild.getId(interface.message.getGuild(message));
 
-  if(interface.user.isBot(author) || interface.user.getId(author) === interface.user.getId(interface.user.SELF))
+  if(interface.user.isBot(author) || interface.user.getId(author) === interface.user.getId(interface.user.self()))
     return '';
 
   if(guild) {
     let content = interface.message.getContent(message);
-    if(interface.message.isMentioned(message,interface.user.SELF)) {
-      let regex = new RegExp('@?' + interface.user.getUsername(interface.user.SELF) + '(#' + interface.user.getId(interface.user.SELF) + ')?');
+    if(interface.message.isMentioned(message,interface.user.self())) {
+      let regex = new RegExp('@?' + interface.user.getUsername(interface.user.self()) + '(#' + interface.user.getId(interface.user.self()) + ')?');
       return content.replace(regex,'').trim();
     }
     if(Triggers[guild] === undefined)
