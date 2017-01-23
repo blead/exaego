@@ -34,7 +34,7 @@ discord.on('ready', () => {
       getId: guild => guild.id
     },
     message: {
-      getAuthor: message => message.author,
+      getAuthor: message => message.member || message.author,
       getChannel: message => message.channel,
       getContent: message => message.content,
       getGuild: message => message.guild,
@@ -48,11 +48,19 @@ discord.on('ready', () => {
     },
     user: {
       self: () => discord.user,
-      getAvatarURL: user => user.avatarURL,
+      getAvatarURL: user => user instanceof Discord.GuildMember ? user.user.avatarURL : user.avatarURL,
       getId: user => user.id,
-      getUsername : user => user.username,
-      isBot: user => user.bot,
+      getUsername: user => user instanceof Discord.GuildMember ? user.user.username : user.username,
+      getVoiceChannel: user => user instanceof Discord.GuildMember ? user.voiceChannel : null,
+      isBot: user => user instanceof Discord.GuildMember ? user.user.bot : user.bot,
       toString: user => user.toString()
+    },
+    voiceChannel: {
+      join: voiceChannel => voiceChannel.join(),
+      leave: voiceChannel => voiceChannel.leave()
+    },
+    voiceConnection: {
+      playStream: (voiceConnection,stream) => voiceConnection.playStream(stream)
     }
   });
 }).on('message', message => discordEgo.message(message)).on('warn', log).on('error', log);

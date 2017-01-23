@@ -8,5 +8,6 @@
   "fuck" : "fuck", "f" : "fuck", "fuckinate" : "fuck", "fucking" : "fuck",
   "memo" : "memo", "mem" : "memo", "memorandum" : "memo", "remember" : "memo", "note" : "memo",
   "removeTrigger" : "removeTrigger", "rt" : "removeTrigger",
-  "triggers" : "triggers"
+  "triggers" : "triggers",
+  "youtube" : "youtube", "yt" : "youtube"
 }

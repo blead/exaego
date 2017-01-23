@@ -14,6 +14,7 @@
     "erlpack": "github:hammerandchisel/erlpack#master",
     "node-opus": "^0.2.4",
     "opusscript": "0.0.1",
-    "uws": "^0.12.0"
+    "uws": "^0.12.0",
+    "ytdl-core": "^0.7.21"
   }
 }

@@ -3,13 +3,12 @@ const Dn = require('../plugins/dragonnest/dn-core.js');
 const Fs = require('fs');
 const Http = require('http');
 const Memo = require('../plugins/memo/memo-core.js');
+const Youtube = require('../plugins/youtube/youtube-core.js');
 var Triggers = require('./triggers.json');
-
 
 function log(message) {
   console.log(new Date().toISOString() + " : " + message);
 }
-
 
 var Commands = {
   'help' : {
@@ -178,6 +177,11 @@ var Commands = {
         });
       }).on('error', log);
     }
+  },
+  'youtube' : {
+    desc : 'Play youtube videos in voice channels. Use `youtube help` for detailed usage information.',
+    usage : '<subcommand>',
+    process : Youtube.eval
   },
   'dragonNest' : {
     desc : 'Calculate various in-game values for Dragon Nest. Use `dragonNest help` for detailed usage information.',
