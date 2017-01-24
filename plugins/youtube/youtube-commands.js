@@ -49,10 +49,12 @@ var Youtube = {
       }
       interface.voiceChannel.join(voiceChannel).then( (connection) => {
         let stream = Ytdl(args[2],{filter: 'audioonly'});
-        stream.once('info',log);
-        interface.voiceConnection.playStream(connection,stream).once('end', (reason) => {
-          interface.voiceChannel.leave(voiceChannel);
-        }).debug(log);
+        stream.on('info', (info,format) => {
+          interface.message.reply(message,'```\n' + JSON.stringify(format) + '\n```');
+        });
+        // interface.voiceConnection.playStream(connection,stream).once('end', (reason) => {
+          // interface.voiceChannel.leave(voiceChannel);
+        // }).debug(log);
       }).catch( (error) => {
         interface.message.reply(message,'Unable to load `' + args[2] + '`, use `' + args[0] + ' help` for detailed usage information.');
         log(error);
