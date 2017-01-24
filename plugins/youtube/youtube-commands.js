@@ -40,7 +40,7 @@ var Youtube = {
       let user = interface.message.getAuthor(message);
       let voiceChannel = interface.user.getVoiceChannel(user);
       if(!args[2]) {
-        interface.message.reply(message,'No video specified');
+        interface.message.reply(message,'No video specified, use `' + args[0] + ' help` for detailed usage information.');
         return;
       }
       if(!voiceChannel) {
@@ -48,10 +48,14 @@ var Youtube = {
         return;
       }
       interface.voiceChannel.join(voiceChannel).then( (connection) => {
-        interface.voiceConnection.playStream(connection,Ytdl(args[2],{filter: 'audioonly'})).once('end', (reason) => {
+        let stream = Ytdl(args[2],{filter: 'audioonly'});
+        interface.voiceConnection.playStream(connection,stream).once('end', (reason) => {
           interface.voiceChannel.leave(voiceChannel);
-        });
-      }).catch(log);
+        }).on('error', (error) => { throw error; });
+      }).catch( (error) => {
+        interface.message.reply(message,'Unable to load `' + args[2] + '`, use `' + args[0] + ' help` for detailed usage information.');
+        log(error);
+      });
     }
   },
   'stop' : {
