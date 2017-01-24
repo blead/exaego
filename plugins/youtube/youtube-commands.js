@@ -1,5 +1,4 @@
 const Aliases = require('./youtube-aliases.json');
-const Fs = require('fs');
 const Ytdl = require('ytdl-core');
 
 function log(message) {
@@ -49,11 +48,11 @@ var Youtube = {
         return;
       }
       interface.voiceChannel.join(voiceChannel).then( (connection) => {
-        // let stream = Ytdl(args[2],{filter: 'audioonly'});
-        let stream = Fs.createReadStream('./plugins/youtube/rickroll.ogg');
+        let stream = Ytdl(args[2],{filter: 'audioonly'});
+        stream.once('info',log);
         interface.voiceConnection.playStream(connection,stream).once('end', (reason) => {
           interface.voiceChannel.leave(voiceChannel);
-        });
+        }).debug(log);
       }).catch( (error) => {
         interface.message.reply(message,'Unable to load `' + args[2] + '`, use `' + args[0] + ' help` for detailed usage information.');
         log(error);
