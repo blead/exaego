@@ -1,7 +1,7 @@
 {
-  "add" : "add", "create" : "add", "store" : "add", "push" : "add", "set" : "add",
-  "help" : "help", "man" : "help", "commands" : "help", "subcommands" : "help",
-  "list" : "list", "ls" : "list", "all" : "list", "memos" : "list",
-  "modify" : "modify", "mod" : "modify", "change" : "modify",
-  "remove" : "remove", "rem" : "remove", "rm" : "remove", "delete" : "remove", "del" : "remove", "pop" : "remove", "unset" : "remove"
+  "create" : "add", "store" : "add", "push" : "add", "set" : "add",
+  "man" : "help", "commands" : "help", "subcommands" : "help",
+  "ls" : "list", "all" : "list", "memos" : "list",
+  "mod" : "modify", "change" : "modify",
+  "rem" : "remove", "rm" : "remove", "delete" : "remove", "del" : "remove", "pop" : "remove", "unset" : "remove"
 }

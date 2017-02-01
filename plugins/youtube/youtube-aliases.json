@@ -1,5 +1,5 @@
 {
-  "help" : "help", "h" : "help",
-  "play" : "play", "p" : "play",
-  "stop" : "stop", "s" : "stop", "leave" : "stop"
+  "h" : "help",
+  "p" : "play",
+  "s" : "stop", "leave" : "stop"
 }

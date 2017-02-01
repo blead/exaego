@@ -1,10 +1,10 @@
 const Aliases = require('./memo-aliases.json');
 const Fs = require('fs');
 try {
-    var Memo = require('./memo-list.json');
+    var MemoList = require('./memo-list.json');
 } catch (e) {
   if (e instanceof Error && e.code === 'MODULE_NOT_FOUND')
-    var Memo = {};
+    var MemoList = {};
   else throw e;
 }
 
@@ -13,6 +13,7 @@ var Memo = {
     desc : 'Display this help message. If a subcommand is specified, give information about the subcommand.',
     usage : '[subcommand]',
     process : (args,message,interface) => {
+      let command = Aliases[args[2]] || args[2];
       let responses = [];
       if(args.length==2) {
         responses.push('__**Memo**__\n\n');
@@ -24,12 +25,12 @@ var Memo = {
           responses.push('\t`' + args[0] + ' ' + command + ' ' + Memo[command].usage + '`\n');
           responses.push('\t\t: ' + Memo[command].desc + '\n');
         });
-      }else if(Memo[Aliases[args[2]]] != undefined) {
-        if(args[2] != Aliases[args[2]]) {
-          responses.push('Alias for `' + Aliases[args[2]] + '`\n');
+      }else if(Memo[command] != undefined) {
+        if(args[2] != command) {
+          responses.push('Alias for `' + command + '`\n');
         }
-        responses.push('Usage: `' + args[0] + ' ' + args[2] + ' ' + Memo[Aliases[args[2]]].usage + '`\n');
-        responses.push('Description: ' + Memo[Aliases[args[2]]].desc + '\n');
+        responses.push('Usage: `' + args[0] + ' ' + args[2] + ' ' + Memo[command].usage + '`\n');
+        responses.push('Description: ' + Memo[command].desc + '\n');
       }else{
         responses.push('The specified subcommand is invalid.');
       }
@@ -45,9 +46,9 @@ var Memo = {
         interface.message.reply(message,'Insufficient parameters. Use `' + args[0] + ' help ' + args[1] + '` for correct usage information.');
         return;
       }
-      if(Memo[guild] === undefined)
-        Memo[guild] = {};
-      if(Memo[guild][args[2]] != undefined) {
+      if(MemoList[guild] === undefined)
+        MemoList[guild] = {};
+      if(MemoList[guild][args[2]] != undefined) {
         interface.message.reply(message,'Entry `' + args[2] + '` already exists. Use `' + args[0] + ' modify ' + args[2] + '` instead.');
         return;
       }
@@ -56,8 +57,8 @@ var Memo = {
         return;
       }
       args[3] = args.slice(3).join(' ');
-      Memo[guild][args[2]] = args[3];
-      Fs.writeFileSync('./plugins/memo/memo-list.json',JSON.stringify(Memo,null,2));
+      MemoList[guild][args[2]] = args[3];
+      Fs.writeFileSync('./plugins/memo/memo-list.json',JSON.stringify(MemoList,null,2));
       interface.channel.sendMessage(interface.message.getChannel(message),'Entry added.');
     }
   },
@@ -70,13 +71,13 @@ var Memo = {
         interface.message.reply(message,'Insufficient parameters. Use `' + args[0] + ' help ' + args[1] + '` for correct usage information.');
         return;
       }
-      if(Memo[guild] === undefined)
-        Memo[guild] = {};
-      if(Memo[guild][args[2]] != undefined) {
+      if(MemoList[guild] === undefined)
+        MemoList[guild] = {};
+      if(MemoList[guild][args[2]] != undefined) {
         let responses = [];
-        responses.push('The following entry will be removed.\n`' + args[2] + '` :\n\t' + Memo[guild][args[2]] + '\n');
-        delete Memo[guild][args[2]];
-        Fs.writeFileSync('./plugins/memo/memo-list.json',JSON.stringify(Memo,null,2));
+        responses.push('The following entry will be removed.\n`' + args[2] + '` :\n\t' + MemoList[guild][args[2]] + '\n');
+        delete MemoList[guild][args[2]];
+        Fs.writeFileSync('./plugins/memo/memo-list.json',JSON.stringify(MemoList,null,2));
         responses.push('Entry removed.');
         interface.channel.sendMessage(interface.message.getChannel(message),responses.join(''));
       } else {
@@ -93,14 +94,14 @@ var Memo = {
         interface.message.reply(message,'Insufficient parameters. Use `' + args[0] + ' help ' + args[1] + '` for correct usage information.');
         return;
       }
-      if(Memo[guild] === undefined)
-        Memo[guild] = {};
-      if(Memo[guild][args[2]] != undefined) {
+      if(MemoList[guild] === undefined)
+        MemoList[guild] = {};
+      if(MemoList[guild][args[2]] != undefined) {
         let responses = [];
-        responses.push('The following entry will be modified.\n`' + args[2] + '` :\n\t' + Memo[guild][args[2]] + '\n');
+        responses.push('The following entry will be modified.\n`' + args[2] + '` :\n\t' + MemoList[guild][args[2]] + '\n');
         args[3] = args.slice(3).join(' ');
-        Memo[guild][args[2]] = args[3];
-        Fs.writeFileSync('./plugins/memo/memo-list.json',JSON.stringify(Memo,null,2));
+        MemoList[guild][args[2]] = args[3];
+        Fs.writeFileSync('./plugins/memo/memo-list.json',JSON.stringify(MemoList,null,2));
         responses.push('Entry modified.');
         interface.channel.sendMessage(interface.message.getChannel(message),responses.join(''));
       } else {
@@ -114,14 +115,14 @@ var Memo = {
     process : (args,message,interface) => {
       let guild = interface.message.getGuild(message);
       let responses = [];
-      if(Memo[guild] === undefined)
-        Memo[guild] = {};
-      if(Object.keys(Memo[guild]).length === 0) {
+      if(MemoList[guild] === undefined)
+        MemoList[guild] = {};
+      if(Object.keys(MemoList[guild]).length === 0) {
         responses.push('No entry found.');
       } else {
-        Object.keys(Memo[guild]).forEach( (entry) => {
+        Object.keys(MemoList[guild]).forEach( (entry) => {
           responses.push('`' + entry + '` :\n');
-          responses.push('\t' + Memo[guild][entry] + '\n');
+          responses.push('\t' + MemoList[guild][entry] + '\n');
         });
       }
       interface.channel.sendMessage(interface.message.getChannel(message),responses.join(''));

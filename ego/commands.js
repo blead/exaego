@@ -14,6 +14,7 @@ var Commands = {
     usage : '[command]',
     process : (args,message,interface) => {
       let guild = interface.guild.getId(interface.message.getGuild(message));
+      let command = Aliases[args[1]] || args[1];
       let responses = [];
       if(args.length==1) {
         responses.push('Use the following commands by sending `<trigger><command>`.\n');
@@ -28,12 +29,12 @@ var Commands = {
           responses.push('\t`' + command + ' ' + Commands[command].usage + '`\n');
           responses.push('\t\t: ' + Commands[command].desc + '\n');
         });
-      } else if(Commands[Aliases[args[1]]] != undefined) {
-        if(args[1] != Aliases[args[1]]) {
-          responses.push('Alias for `' + Aliases[args[1]] + '`\n');
+      } else if(Commands[command] != undefined) {
+        if(args[1] != command) {
+          responses.push('Alias for `' + command + '`\n');
         }
-        responses.push('Usage: `' + args[1] + ' ' + Commands[Aliases[args[1]]].usage + '`\n');
-        responses.push('Description: ' + Commands[Aliases[args[1]]].desc + '\n');
+        responses.push('Usage: `' + args[1] + ' ' + Commands[command].usage + '`\n');
+        responses.push('Description: ' + Commands[command].desc + '\n');
       } else {
         responses.push('The specified command is invalid.');
       }
@@ -55,7 +56,7 @@ var Commands = {
   },
   'addTrigger' : {
     desc : 'Add specified phrase(s) to the trigger list.',
-    usage : 'phrase1 [phrase2 phrase3 phrase4 ...]',
+    usage : '<phrase1> [phrase2 phrase3 phrase4 ...]',
     process : (args,message,interface) => {
       let guild = interface.guild.getId(interface.message.getGuild(message));
       if(args.length==1) {
@@ -79,7 +80,7 @@ var Commands = {
   },
   'removeTrigger' : {
     desc : 'Remove specified phrase(s) from the trigger list.',
-    usage : 'phrase1 [phrase2 phrase3 phrase4 ...]',
+    usage : '<phrase1> [phrase2 phrase3 phrase4 ...]',
     process : (args,message,interface) => {
       let guild = interface.guild.getId(interface.message.getGuild(message));
       if(args.length==1) {

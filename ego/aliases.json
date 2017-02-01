@@ -1,13 +1,10 @@
 {
-  "addTrigger" : "addTrigger", "at" : "addTrigger",
-  "dragonNest" : "dragonNest", "dragonnest" : "dragonNest", "dn" : "dragonNest",
-  "avatar" : "avatar",
-  "hello" : "hello", "hi" : "hello", "ควย" : "hello",
-  "help" : "help", "man" : "help", "commands" : "help",
-  "insult" : "insult",
-  "fuck" : "fuck", "f" : "fuck", "fuckinate" : "fuck", "fucking" : "fuck",
-  "memo" : "memo", "mem" : "memo", "memorandum" : "memo", "remember" : "memo", "note" : "memo",
-  "removeTrigger" : "removeTrigger", "rt" : "removeTrigger",
-  "triggers" : "triggers",
-  "youtube" : "youtube", "yt" : "youtube"
+  "at" : "addTrigger",
+  "dragonnest" : "dragonNest", "dn" : "dragonNest",
+  "hi" : "hello", "ควย" : "hello",
+  "man" : "help", "commands" : "help",
+  "f" : "fuck", "fuckinate" : "fuck", "fucking" : "fuck",
+  "mem" : "memo", "memorandum" : "memo", "remember" : "memo", "note" : "memo",
+  "rt" : "removeTrigger",
+  "yt" : "youtube"
 }

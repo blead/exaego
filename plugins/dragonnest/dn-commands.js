@@ -29,6 +29,7 @@ var Dn = {
     desc : 'Display this help message. If a subcommand is specified, give information about the subcommand.',
     usage : '[subcommand]',
     process : (args,message,interface) => {
+      let command = Aliases[args[2]] || args[2];
       let responses = [];
       if(args.length==2) {
         responses.push('__**Dragon Nest**__\n\n');
@@ -40,12 +41,12 @@ var Dn = {
           responses.push('\t`' + args[0] + ' ' + command + ' ' + Dn[command].usage + '`\n');
           responses.push('\t\t: ' + Dn[command].desc + '\n');
         });
-      }else if(Dn[Aliases[args[2]]] != undefined) {
-        if(args[2] != Aliases[args[2]]) {
-          responses.push('Alias for `' + Aliases[args[2]] + '`\n');
+      }else if(Dn[command] != undefined) {
+        if(args[2] != command) {
+          responses.push('Alias for `' + command + '`\n');
         }
-        responses.push('Usage: `' + args[0] + ' '+args[2] + ' ' + Dn[Aliases[args[2]]].usage + '`\n');
-        responses.push('Description: ' + Dn[Aliases[args[2]]].desc + '\n');
+        responses.push('Usage: `' + args[0] + ' '+args[2] + ' ' + Dn[command].usage + '`\n');
+        responses.push('Description: ' + Dn[command].desc + '\n');
       }else{
         responses.push('The specified subcommand is invalid.');
       }
@@ -137,7 +138,7 @@ var Dn = {
   },
   'defense' : {
     desc : 'Calculate in-game defense values and effective HP for each damage type.',
-    usage : 'HP P.Def M.Def [level]',
+    usage : '<HP> <P.Def> <M.Def> [level]',
     process : (args,message,interface) => {
       if(args.length < 3) {
         interface.message.reply(message,'No value specified.');

@@ -14,8 +14,9 @@ function eval(message,interface) {
   let content = getContent(message,interface);
   if(content) {
     let args = content.split(' ');
-    if(Commands[Aliases[args[0]]] != undefined)
-      Commands[Aliases[args[0]]].process(args,message,interface);
+    let command = Aliases[args[0]] || args[0];
+    if(Commands[command] != undefined)
+      Commands[command].process(args,message,interface);
     else if(interface.message.isMentioned(message,interface.user.self()))
       interface.message.reply(message,'Invalid command, use `help` for more information on commands.');
   }

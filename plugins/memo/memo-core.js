@@ -11,8 +11,9 @@ try {
 // args: array of arguments [0]: 'memo' [1+]: parameters
 // interface: reply function, see ../core.js
 exports.eval = (args,message,interface) => {
-  if(Commands[Aliases[args[1]]] != undefined) {
-    Commands[Aliases[args[1]]].process(args,message,interface);
+  let command = Aliases[args[1]] || args[1];
+  if(Commands[command] != undefined) {
+    Commands[command].process(args,message,interface);
   } else if(Memo[args[1]] != undefined) {
     let responses = '`' + args[1] + '` :\n\t' + Memo[args[1]];
     responses = interface.message.replaceUserMentions(message,responses);
