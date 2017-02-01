@@ -1,9 +1,6 @@
 const Aliases = require('./youtube-aliases.json');
+const Log = require('../../utils/log.js');
 const Ytdl = require('ytdl-core');
-
-function log(message) {
-  console.log(new Date().toISOString() + " : " + message);
-}
 
 var Youtube = {
   'help' : {
@@ -49,15 +46,12 @@ var Youtube = {
       }
       interface.voiceChannel.join(voiceChannel).then( (connection) => {
         let stream = Ytdl(args[2],{filter: 'audioonly'});
-        stream.on('info', (info,format) => {
-          interface.message.reply(message,'```\n' + JSON.stringify(format) + '\n```');
+        interface.voiceConnection.playStream(connection,stream).once('end', (reason) => {
+          interface.voiceChannel.leave(voiceChannel);
         });
-        // interface.voiceConnection.playStream(connection,stream).once('end', (reason) => {
-          // interface.voiceChannel.leave(voiceChannel);
-        // }).debug(log);
       }).catch( (error) => {
         interface.message.reply(message,'Unable to load `' + args[2] + '`, use `' + args[0] + ' help` for detailed usage information.');
-        log(error);
+        Log(error);
       });
     }
   },

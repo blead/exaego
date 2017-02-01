@@ -2,13 +2,11 @@ const Aliases = require('./aliases.json');
 const Dn = require('../plugins/dragonnest/dn-core.js');
 const Fs = require('fs');
 const Http = require('http');
+const Log = require('../utils/log.js');
 const Memo = require('../plugins/memo/memo-core.js');
 const Youtube = require('../plugins/youtube/youtube-core.js');
 var Triggers = require('./triggers.json');
 
-function log(message) {
-  console.log(new Date().toISOString() + " : " + message);
-}
 
 var Commands = {
   'help' : {
@@ -75,7 +73,7 @@ var Commands = {
       } );
       // write to file
       Fs.writeFileSync('./ego/triggers.json',JSON.stringify(Triggers,null,2));
-      log('New trigger phrase(s) added to triggers.json.');
+      Log('New trigger phrase(s) added to triggers.json.');
       interface.channel.sendMessage(interface.message.getChannel(message),'New trigger phrase(s) added.');
     }
   },
@@ -96,7 +94,7 @@ var Commands = {
       }
       // write to file
       Fs.writeFileSync('./ego/triggers.json',JSON.stringify(Triggers,null,2));
-      log('Trigger phrase(s) removed from triggers.json.');
+      Log('Trigger phrase(s) removed from triggers.json.');
       interface.channel.sendMessage(interface.message.getChannel(message),'Trigger phrase(s) removed.');
     }
   },
@@ -145,7 +143,7 @@ var Commands = {
             interface.channel.sendMessage(interface.message.getChannel(message),responses);
           }
         });
-      }).on('error', log);
+      }).on('error', Log);
     }
   },
   'fuck' : {
@@ -175,7 +173,7 @@ var Commands = {
           interface.channel.stopTyping(interface.message.getChannel(message));
           interface.channel.sendMessage(interface.message.getChannel(message),responses);
         });
-      }).on('error', log);
+      }).on('error', Log);
     }
   },
   'youtube' : {
