@@ -47,7 +47,7 @@ var Youtube = {
       }
       Promise.all([
         interface.voiceChannel.join(voiceChannel),
-        ytdl(args[2],{filter: 'audioonly', highWaterMark: 1<<24 /* 16mb */})
+        ytdl(args[2],{quality: 'highestaudio', highWaterMark: 1<<24 /* 16mb */})
       ]).then( (values) => {
         const connection = values[0];
         const opusStream = values[1];
