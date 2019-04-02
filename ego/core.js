@@ -30,7 +30,7 @@ function getContent(message,interface) {
     return '';
 
   if(guild) {
-    let content = interface.message.getContent(message);
+    let content = interface.message.getCleanContent(message);
     if(interface.message.isMentioned(message,interface.user.self())) {
       let regex = new RegExp('@?' + interface.user.getUsername(interface.user.self()) + '(#' + interface.user.getId(interface.user.self()) + ')?');
       return content.replace(regex,'').trim();
