@@ -45,7 +45,10 @@ var Youtube = {
         interface.message.reply(message,'Unable to join your voice channel.');
         return;
       }
-      Promise.all([interface.voiceChannel.join(voiceChannel),ytdl(args[2],{filter: 'audioonly'})]).then( (values) => {
+      Promise.all([
+        interface.voiceChannel.join(voiceChannel),
+        ytdl(args[2],{filter: 'audioonly', highWaterMark: 1<<24 /* 16mb */})
+      ]).then( (values) => {
         const connection = values[0];
         const opusStream = values[1];
         interface.voiceConnection.playOpusStream(connection,opusStream).once('end', (reason) => {
