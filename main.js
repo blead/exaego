@@ -34,6 +34,7 @@ discord.on('ready', () => {
       getAuthor: message => message.member || message.author,
       getChannel: message => message.channel,
       getContent: message => message.content,
+      getCleanContent: message => message.cleanContent,
       getGuild: message => message.guild,
       getUserMentions: message => message.mentions.users,
       isMentioned: (message,user) => message.isMentioned(user),
@@ -57,7 +58,8 @@ discord.on('ready', () => {
       leave: voiceChannel => voiceChannel.leave()
     },
     voiceConnection: {
-      playStream: (voiceConnection,stream) => voiceConnection.playStream(stream)
+      playStream: (voiceConnection,stream) => voiceConnection.playStream(stream),
+      playOpusStream: (voiceConnection,opusStream) => voiceConnection.playOpusStream(opusStream)
     }
   });
 }).on('message', message => discordEgo.message(message)).on('warn', Log).on('error', Log);

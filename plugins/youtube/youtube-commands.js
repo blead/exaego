@@ -1,6 +1,6 @@
 const Aliases = require('./youtube-aliases.json');
 const Log = require('../../utils/log.js');
-const Ytdl = require('ytdl-core');
+const ytdl = require('ytdl-core-discord');
 
 var Youtube = {
   'help' : {
@@ -45,9 +45,10 @@ var Youtube = {
         interface.message.reply(message,'Unable to join your voice channel.');
         return;
       }
-      interface.voiceChannel.join(voiceChannel).then( (connection) => {
-        let stream = Ytdl(args[2],{filter: 'audioonly'});
-        interface.voiceConnection.playStream(connection,stream).once('end', (reason) => {
+      Promise.all([interface.voiceChannel.join(voiceChannel),ytdl(args[2],{filter: 'audioonly'})]).then( (values) => {
+        const connection = values[0];
+        const opusStream = values[1];
+        interface.voiceConnection.playOpusStream(connection,opusStream).once('end', (reason) => {
           interface.voiceChannel.leave(voiceChannel);
         });
       }).catch( (error) => {
