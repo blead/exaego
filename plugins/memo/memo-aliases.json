@@ -1,7 +1,0 @@
-{
-  "create" : "add", "store" : "add", "push" : "add", "set" : "add",
-  "man" : "help", "commands" : "help", "subcommands" : "help",
-  "ls" : "list", "all" : "list", "memos" : "list",
-  "mod" : "modify", "change" : "modify",
-  "rem" : "remove", "rm" : "remove", "delete" : "remove", "del" : "remove", "pop" : "remove", "unset" : "remove"
-}

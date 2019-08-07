@@ -1,7 +1,0 @@
-{
-  "crit" : "critical",
-  "critDamage" : "criticalDamage", "criticaldmg" : "criticalDamage", "critdmg" : "criticalDamage", "cdmg" : "criticalDamage",
-  "defence" : "defense", "def" : "defense",
-  "finaldmg" : "finalDamage", "final" : "finalDamage", "fdmg" : "finalDamage", "fd" : "finalDamage",
-  "man" : "help", "commands" : "help", "subcommands" : "help"
-}

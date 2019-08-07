@@ -1,0 +1,13 @@
+const config = {
+  web: {
+    port: process.env.NODEJS_PORT || 8000,
+    ip: process.env.NODEJS_IP || '127.0.0.1',
+  },
+  discord: {
+    appId: process.env.DISCORD_APP_ID || 'application-id',
+    token: process.env.DISCORD_TOKEN || 'token',
+    activity: process.env.DISCORD_ACTIVITY || 'activity',
+  },
+};
+
+module.exports = config;

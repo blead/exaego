@@ -1,5 +1,0 @@
-{
-  "appID" : "application_ID",
-  "oauth2Token" : "token_here",
-  "playing" : "set_to_null_to_clear"
-}

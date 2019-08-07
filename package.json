@@ -1,6 +1,6 @@
 {
   "name": "exaego",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "simple discord bot",
   "private": true,
   "main": "main.js",
@@ -10,12 +10,8 @@
   "author": "blead",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.4.2",
-    "erlpack": "github:hammerandchisel/erlpack#master",
-    "ffmpeg-binaries": "^3.2.2-3",
-    "node-opus": "^0.2.4",
-    "opusscript": "0.0.1",
-    "uws": "^10.148.0",
-    "ytdl-core-discord": "^1.0.3"
+    "discord.js": "^11.5.1",
+    "node-opus": "^0.3.2",
+    "ytdl-core": "^0.29.5"
   }
 }
