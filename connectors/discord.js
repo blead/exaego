@@ -34,8 +34,8 @@ class DiscordConnector extends Connector {
     leave: voiceChannel => voiceChannel.leave(),
   };
   voiceConnection = {
-    playStream: (voiceConnection, stream) => new Promise((resolve, reject) => {
-        const dispatcher = voiceConnection.playStream(stream);
+    playStream: (voiceConnection, stream, { volume = 50 }) => new Promise((resolve, reject) => {
+        const dispatcher = voiceConnection.playStream(stream, { volume: volume/100 });
         dispatcher
           .on('end', resolve)
           .on('error', reject);
