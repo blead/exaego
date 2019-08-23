@@ -4,10 +4,14 @@ function parseDateString(dateString) {
     return now;
   }
   if (dateString === 'tomorrow' || dateString === 'tmr') {
-    return new Date(now.getTime()).setUTCDate(now.getUTCDate() + 1);
+    const tomorrow = new Date(now.getTime());
+    tomorrow.setUTCDate(now.getUTCDate() + 1);
+    return tomorrow;
   }
   if (dateString === 'yesterday' || dateString === 'ytd') {
-    return new Date(now.getTime()).setUTCDate(now.getUTCDate() - 1);
+    const yesterday = new Date(now.getTime());
+    yesterday.setUTCDate(now.getUTCDate() - 1);
+    return yesterday;
   }
   return new Date(dateString);
 }
