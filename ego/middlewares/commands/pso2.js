@@ -23,7 +23,7 @@ function pso2(message, connector, localContext, connectorContext, globalContext)
   const arguments = matches[2].split(/\s+/);
   if (arguments[0] === 'daily' || arguments[0] === 'do') {
     if (arguments[1] === 'list') {
-      let targetDate = arguments[1] !== undefined ? parseDateString(arguments[1]) : new Date();
+      let targetDate = arguments[2] !== undefined ? parseDateString(arguments[2]) : new Date();
       if (!Number.isNaN(targetDate.getTime())) {
         orders = getDailyOrders(targetDate);
         connector.channel.send(channel, orders.join('\n'));
