@@ -1,0 +1,1417 @@
+[
+  {
+    "name": "Forest Exploration (Featured Quest)",
+    "recordedDate": "2016-08-27T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Caves Exploration (Featured Quest)",
+    "recordedDate": "2016-08-28T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Desert Exploration (Featured Quest)",
+    "recordedDate": "2016-08-29T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Tundra Exploration (Featured Quest)",
+    "recordedDate": "2016-08-30T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Tunnels Exploration (Featured Quest)",
+    "recordedDate": "2016-08-31T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Skyscape Exploration (Featured Quest)",
+    "recordedDate": "2016-09-01T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Ruins Exploration (Featured Quest)",
+    "recordedDate": "2016-09-02T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Sanctum Exploration (Featured Quest)",
+    "recordedDate": "2016-09-03T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Coast Exploration (Featured Quest)",
+    "recordedDate": "2016-09-04T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Quarry Exploration (Featured Quest)",
+    "recordedDate": "2016-09-05T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Seabed Exploration (Featured Quest)",
+    "recordedDate": "2016-09-06T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Shironia Exploration (Featured Quest)",
+    "recordedDate": "2016-09-07T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Facility Exploration (Featured Quest)",
+    "recordedDate": "2016-09-08T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Kuron Exploration (Featured Quest)",
+    "recordedDate": "2016-09-09T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Tokyo Exploration (Featured Quest)",
+    "recordedDate": "2016-08-25T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Las Vegas Exploration (Featured Quest)",
+    "recordedDate": "2016-08-26T00:00+00:00",
+    "intervals": [
+    16
+    ],
+    "cycleLength": 16
+  },
+  {
+    "name": "Nab Rappy Capture (Featured Quest)",
+    "recordedDate": "2016-04-21T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Wolgahda Extermination (Featured Quest)",
+    "recordedDate": "2016-04-21T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Dragon Suppression: Skyscape (Featured Quest)",
+    "recordedDate": "2016-04-22T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Kuronite Suppression: Shironia (Featured Quest)",
+    "recordedDate": "2016-04-22T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue Caterdra'nsa (Featured Quest)",
+    "recordedDate": "2016-04-23T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Facility Survey (Featured Quest)",
+    "recordedDate": "2016-04-23T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "ARKS Search: Tundra (Featured Quest)",
+    "recordedDate": "2016-04-24T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue Sol Dirandal (Featured Quest)",
+    "recordedDate": "2016-04-24T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Ruins Infestation Survey (Featured Quest)",
+    "recordedDate": "2016-04-25T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Vopar Rescue Team (Featured Quest)",
+    "recordedDate": "2016-04-25T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue Goronzoran (Featured Quest)",
+    "recordedDate": "2016-04-26T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Phantom Repulsion: Tokyo (Featured Quest)",
+    "recordedDate": "2016-04-26T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Mech Power Survey: Tunnels (Featured Quest)",
+    "recordedDate": "2016-04-27T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Anjhadu-lili Demolition (Featured Quest)",
+    "recordedDate": "2016-04-27T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Distress Signal Investigation (Featured Quest)",
+    "recordedDate": "2016-04-28T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue Org Blan (Featured Quest)",
+    "recordedDate": "2016-04-28T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Rare Ore Mining (Featured Quest)",
+    "recordedDate": "2016-04-29T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Mobile Fortress Destruction (Featured Quest)",
+    "recordedDate": "2016-04-29T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue Decol Malluda (Featured Quest)",
+    "recordedDate": "2016-04-30T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Kuronite Investigation (Featured Quest)",
+    "recordedDate": "2016-04-30T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Tundra Regional Survey (Featured Quest)",
+    "recordedDate": "2016-05-01T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue Rheo Madullard (Featured Quest)",
+    "recordedDate": "2016-05-01T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Cargo Recovery: Desert (Featured Quest)",
+    "recordedDate": "2016-05-02T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Codotta Idetta Subjugation (Featured Quest)",
+    "recordedDate": "2016-05-02T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Dagan Extermination: Forest (Featured Quest)",
+    "recordedDate": "2016-05-03T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Train Ghidoran Suppression (Featured Quest)",
+    "recordedDate": "2016-05-03T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Kartargot Extermination (Featured Quest)",
+    "recordedDate": "2016-05-04T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Mech Power Survey: Desert (Featured Quest)",
+    "recordedDate": "2016-05-04T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue Za Oodan (Featured Quest)",
+    "recordedDate": "2016-05-05T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Sanctum Suppression (Featured Quest)",
+    "recordedDate": "2016-05-05T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue Caterdra'n (Featured Quest)",
+    "recordedDate": "2016-05-06T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Lillipan Settlement Defense (Featured Quest)",
+    "recordedDate": "2016-05-06T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Sample Collection: Skyscape (Featured Quest)",
+    "recordedDate": "2016-05-07T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Coastal Conservation (Featured Quest)",
+    "recordedDate": "2016-05-07T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue Fangulf (Featured Quest)",
+    "recordedDate": "2016-05-08T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Subdue De Malmoth (Featured Quest)",
+    "recordedDate": "2016-05-08T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Dragonkin Ecological Survey (Featured Quest)",
+    "recordedDate": "2016-05-09T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Mech Power Survey:Quarry (Featured Quest)",
+    "recordedDate": "2016-05-09T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Polluter Destruction  (Featured Quest)",
+    "recordedDate": "2016-05-10T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Coastal Ecological Survey (Featured Quest)",
+    "recordedDate": "2016-05-10T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Transformer Takedown (Featured Quest)",
+    "recordedDate": "2016-05-11T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Seabed Ecological Survey (Featured Quest)",
+    "recordedDate": "2016-05-11T00:00+00:00",
+    "intervals": [
+    21
+    ],
+    "cycleLength": 21
+  },
+  {
+    "name": "Nab Rappy Capture (N)",
+    "recordedDate": "2016-09-07T00:00+00:00",
+    "intervals": [
+    12,
+    60,
+    12,
+    9
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Run: Kartargot Extermination (N)",
+    "recordedDate": "2017-08-05T00:00+00:00",
+    "intervals": [
+    22,
+    15,
+    20,
+    9,
+    13,
+    14
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Caterdra'nsa",
+    "recordedDate": "2017-08-13T00:00+00:00",
+    "intervals": [
+    54,
+    39
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Cargo Recovery: Desert (N)",
+    "recordedDate": "2016-05-01T00:00+00:00",
+    "intervals": [
+    21,
+    17,
+    19,
+    12,
+    24
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Anjhadu-lili Demolition (N)",
+    "recordedDate": "2016-03-11T00:00+00:00",
+    "intervals": [
+    23,
+    12,
+    21,
+    24,
+    13
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Subdue Rheo Madullard (N)",
+    "recordedDate": "2016-04-19T00:00+00:00",
+    "intervals": [
+    26,
+    27,
+    4,
+    21,
+    15
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Rheo Madullard (N)",
+    "recordedDate": "2016-07-01T00:00+00:00",
+    "intervals": [
+    16,
+    77
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Gigur Gunne-gam (N)",
+    "recordedDate": "2016-01-30T00:00+00:00",
+    "intervals": [
+    64,
+    29
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Nepto Cassadora (N)",
+    "recordedDate": "2016-02-09T00:00+00:00",
+    "intervals": [
+    44,
+    49
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Type-15 Tank (N)",
+    "recordedDate": "2016-02-20T00:00+00:00",
+    "intervals": [
+    12,
+    12,
+    69
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Train Ghidoran (N)",
+    "recordedDate": "2016-03-27T00:00+00:00",
+    "intervals": [
+    12,
+    12,
+    69
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Shironia Exploration (N)",
+    "recordedDate": "2016-02-01T00:00+00:00",
+    "intervals": [
+    3,
+    24,
+    24,
+    20,
+    4,
+    8,
+    10
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Facility Exploration (N)",
+    "recordedDate": "2016-04-22T00:00+00:00",
+    "intervals": [
+    21,
+    5,
+    7,
+    26,
+    10,
+    12,
+    12
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Tokyo Exploration (N)",
+    "recordedDate": "2016-01-31T00:00+00:00",
+    "intervals": [
+    7,
+    2,
+    12,
+    12,
+    4,
+    8,
+    4,
+    8,
+    4,
+    8,
+    4,
+    8,
+    4,
+    3,
+    5
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Naberius Advanced (N)",
+    "recordedDate": "2016-05-09T00:00+00:00",
+    "intervals": [
+    36,
+    36,
+    21
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Amduscia (N)",
+    "recordedDate": "2016-05-27T00:00+00:00",
+    "intervals": [
+    6,
+    36,
+    51
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Lillipa (N)",
+    "recordedDate": "2016-04-30T00:00+00:00",
+    "intervals": [
+    21,
+    36,
+    36
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Rockbear (H)",
+    "recordedDate": "2016-09-21T00:00+00:00",
+    "intervals": [
+    37,
+    56
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Subdue Caterdra'n (H)",
+    "recordedDate": "2017-06-04T00:00+00:00",
+    "intervals": [
+    27,
+    7,
+    27,
+    21,
+    11
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Distress Signal Investigation (H)",
+    "recordedDate": "2016-02-08T00:00+00:00",
+    "intervals": [
+    20,
+    7,
+    20,
+    7,
+    39
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Transformer Takedown (H)",
+    "recordedDate": "2016-07-31T00:00+00:00",
+    "intervals": [
+    9,
+    24,
+    9,
+    15,
+    12,
+    24
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Subdue Caterdra'nsa (H)",
+    "recordedDate": "2016-09-10T00:00+00:00",
+    "intervals": [
+    7,
+    20,
+    7,
+    14,
+    15,
+    30
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Kuron Exploration (H)",
+    "recordedDate": "2016-02-13T00:00+00:00",
+    "intervals": [
+    9,
+    11,
+    30,
+    16,
+    20,
+    7
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Mobile Fortress Destruction (H)",
+    "recordedDate": "2016-04-13T00:00+00:00",
+    "intervals": [
+    7,
+    11,
+    18,
+    7,
+    18,
+    32
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Defeat: Codotta Idetta (H)",
+    "recordedDate": "2016-09-29T00:00+00:00",
+    "intervals": [
+    20,
+    7,
+    27,
+    9,
+    23,
+    7
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Codotta Idetta (H)",
+    "recordedDate": "2016-08-04T00:00+00:00",
+    "intervals": [
+    58,
+    35
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Guar Zigmorde (H)",
+    "recordedDate": "2016-08-28T00:00+00:00",
+    "intervals": [
+    51,
+    42
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Devil’s Trailer (H)",
+    "recordedDate": "2016-09-09T00:00+00:00",
+    "intervals": [
+    58,
+    35
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Vegas Illusia (H)",
+    "recordedDate": "2016-09-18T00:00+00:00",
+    "intervals": [
+    39,
+    54
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Subdue Org Blan (H)",
+    "recordedDate": "2016-08-15T00:00+00:00",
+    "intervals": [
+    9,
+    11,
+    30,
+    16,
+    20,
+    7
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Las Vegas Exploration (H)",
+    "recordedDate": "2016-09-01T00:00+00:00",
+    "intervals": [
+    4,
+    11,
+    24,
+    12,
+    16,
+    12,
+    5,
+    9
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Naberius Beginner (H)",
+    "recordedDate": "2016-05-13T00:00+00:00",
+    "intervals": [
+    60,
+    33
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Naberius Advanced (H)",
+    "recordedDate": "2016-03-05T00:00+00:00",
+    "intervals": [
+    60,
+    33
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Amdusica (H)",
+    "recordedDate": "2016-05-02T00:00+00:00",
+    "intervals": [
+    59,
+    34
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Lillipa (H)",
+    "recordedDate": "2016-04-22T00:00+00:00",
+    "intervals": [
+    79,
+    14
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Sanctum Infiltration (H)",
+    "recordedDate": "2016-05-25T00:00+00:00",
+    "intervals": [
+    24,
+    69
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "De Malmoth (VH)",
+    "recordedDate": "2016-04-07T00:00+00:00",
+    "intervals": [
+    93
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Zeshrayda (VH)",
+    "recordedDate": "2016-03-18T00:00+00:00",
+    "intervals": [
+    93
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Goronzoran (VH)",
+    "recordedDate": "2016-08-09T00:00+00:00",
+    "intervals": [
+    48,
+    45
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Dragon Ex (VH)",
+    "recordedDate": "2016-09-10T00:00+00:00",
+    "intervals": [
+    18,
+    18,
+    57
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Cave Exploration (VH)",
+    "recordedDate": "2016-05-09T00:00+00:00",
+    "intervals": [
+    5,
+    46,
+    3,
+    39
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "ARKS Search: Tundra (VH)",
+    "recordedDate": "2016-05-06T00:00+00:00",
+    "intervals": [
+    6,
+    54,
+    14,
+    19
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Skyscape Exploration (VH)",
+    "recordedDate": "2016-02-12T00:00+00:00",
+    "intervals": [
+    5,
+    49,
+    14,
+    25
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Polluter Destruction (VH)",
+    "recordedDate": "2016-02-15T00:00+00:00",
+    "intervals": [
+    5,
+    49,
+    14,
+    25
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Ruins Exploration (VH)",
+    "recordedDate": "2016-02-21T00:00+00:00",
+    "intervals": [
+    2,
+    49,
+    18,
+    24
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Sanctum Suppression (VH)",
+    "recordedDate": "2016-06-16T00:00+00:00",
+    "intervals": [
+    12,
+    42,
+    28,
+    11
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Sanctum Exploration (VH)",
+    "recordedDate": "2016-09-09T00:00+00:00",
+    "intervals": [
+    11,
+    6,
+    48,
+    28
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Org Blan (VH)",
+    "recordedDate": "2016-02-17T00:00+00:00",
+    "intervals": [
+    48,
+    23,
+    22
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Bal Rodos (VH)",
+    "recordedDate": "2016-01-30T00:00+00:00",
+    "intervals": [
+    3,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Vardha Soma (VH)",
+    "recordedDate": "2017-09-02T00:00+00:00",
+    "intervals": [
+    18,
+    37,
+    38
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Decol Malluda (VH)",
+    "recordedDate": "2016-02-13T00:00+00:00",
+    "intervals": [
+    63,
+    13,
+    17
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Type-15 Tank (VH)",
+    "recordedDate": "2016-02-10T00:00+00:00",
+    "intervals": [
+    18,
+    18,
+    18,
+    18,
+    21
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Devil’s Trailer (VH)",
+    "recordedDate": "2017-08-07T00:00+00:00",
+    "intervals": [
+    8,
+    31,
+    54
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Coastal Ecological Survey (VH)",
+    "recordedDate": "2016-02-24T00:00+00:00",
+    "intervals": [
+    51,
+    14,
+    22,
+    6
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Coast Exploration (VH)",
+    "recordedDate": "2016-01-30T00:00+00:00",
+    "intervals": [
+    28,
+    2,
+    42,
+    7,
+    14
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Mech Power Survey: Quarry (VH)",
+    "recordedDate": "2016-07-10T00:00+00:00",
+    "intervals": [
+    13,
+    44,
+    7,
+    29
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Quarry Exploration (VH)",
+    "recordedDate": "2016-07-07T00:00+00:00",
+    "intervals": [
+    19,
+    44,
+    19,
+    11
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Seabed Ecological Survey (VH)",
+    "recordedDate": "2016-03-13T00:00+00:00",
+    "intervals": [
+    9,
+    36,
+    36,
+    12
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Seabed Exploration (VH)",
+    "recordedDate": "2016-01-31T00:00+00:00",
+    "intervals": [
+    41,
+    4,
+    14,
+    34
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Naberius Advanced (VH)",
+    "recordedDate": "2016-05-29T00:00+00:00",
+    "intervals": [
+    22,
+    14,
+    57
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Amduscia (VH)",
+    "recordedDate": "2016-04-26T00:00+00:00",
+    "intervals": [
+    21,
+    36,
+    36
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Marathon Training: Lillipa (VH)",
+    "recordedDate": "2016-05-05T00:00+00:00",
+    "intervals": [
+    36,
+    36,
+    21
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Rockbear (SH)",
+    "recordedDate": "2017-07-08T00:00+00:00",
+    "intervals": [
+    49,
+    44
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Vol Dragon (SH)",
+    "recordedDate": "2016-04-03T00:00+00:00",
+    "intervals": [
+    26,
+    67
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Gwanahda (SH)",
+    "recordedDate": "2016-08-18T00:00+00:00",
+    "intervals": [
+    27,
+    66
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Snow Banther (SH)",
+    "recordedDate": "2016-02-18T00:00+00:00",
+    "intervals": [
+    54,
+    39
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Big Vardha (SH)",
+    "recordedDate": "2016-02-23T00:00+00:00",
+    "intervals": [
+    54,
+    39
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Quartz Dragon (SH)",
+    "recordedDate": "2016-02-27T00:00+00:00",
+    "intervals": [
+    54,
+    39
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Zeshrayda (SH)",
+    "recordedDate": "2016-03-03T00:00+00:00",
+    "intervals": [
+    54,
+    39
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Dragon Ex (SH)",
+    "recordedDate": "2017-09-16T00:00+00:00",
+    "intervals": [
+    54,
+    39
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Bal Rodos (SH)",
+    "recordedDate": "2016-08-06T00:00+00:00",
+    "intervals": [
+    93
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Blu Ringahda (SH)",
+    "recordedDate": "2016-02-06T00:00+00:00",
+    "intervals": [
+    39,
+    54
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Biol Meduna (SH)",
+    "recordedDate": "2016-03-04T00:00+00:00",
+    "intervals": [
+    17,
+    76
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Train Ghidoran (SH)",
+    "recordedDate": "2017-08-01T00:00+00:00",
+    "intervals": [
+    64,
+    29
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Vegas Illusia (SH)",
+    "recordedDate": "2016-09-11T00:00+00:00",
+    "intervals": [
+    30,
+    22,
+    8,
+    33
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Forest Exploration (SH)",
+    "recordedDate": "2014-09-27T00:00+00:00",
+    "intervals": [
+    6,
+    3,
+    24,
+    27,
+    33
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Caves Exploration (SH)",
+    "recordedDate": "2014-08-28T00:00+00:00",
+    "intervals": [
+    48,
+    33,
+    3,
+    3,
+    6
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Desert Exploration (SH)",
+    "recordedDate": "2014-09-03T00:00+00:00",
+    "intervals": [
+    3,
+    3,
+    15,
+    15,
+    57
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Tundra Exploration (SH)",
+    "recordedDate": "2014-08-31T00:00+00:00",
+    "intervals": [
+    12,
+    6,
+    30,
+    15,
+    6,
+    24
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Tunnels Exploration (SH)",
+    "recordedDate": "2014-09-21T00:00+00:00",
+    "intervals": [
+    21,
+    9,
+    6,
+    18,
+    39
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Skyscape Exploration (SH)",
+    "recordedDate": "2014-09-15T00:00+00:00",
+    "intervals": [
+    15,
+    24,
+    12,
+    6,
+    36
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Ruins Exploration (SH)",
+    "recordedDate": "2016-01-31T00:00+00:00",
+    "intervals": [
+    15,
+    15,
+    24,
+    18,
+    21
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Sanctum Exploration (SH)",
+    "recordedDate": "2016-03-04T00:00+00:00",
+    "intervals": [
+    15,
+    9,
+    3,
+    21,
+    45
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Coast Exploration (SH)",
+    "recordedDate": "2016-01-28T00:00+00:00",
+    "intervals": [
+    12,
+    3,
+    6,
+    9,
+    18,
+    45
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Quarry Exploration (SH)",
+    "recordedDate": "2016-02-21T00:00+00:00",
+    "intervals": [
+    15,
+    33,
+    6,
+    3,
+    36
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Subdue Decol Malluda (SH)",
+    "recordedDate": "2016-02-24T00:00+00:00",
+    "intervals": [
+    15,
+    24,
+    21,
+    3,
+    30
+    ],
+    "cycleLength": 93
+  },
+  {
+    "name": "Seabed Exploration (SH)",
+    "recordedDate": "2016-02-03T00:00+00:00",
+    "intervals": [
+    3,
+    36,
+    9,
+    15,
+    30
+    ],
+    "cycleLength": 93
+  }
+  ]
