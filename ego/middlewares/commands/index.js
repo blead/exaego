@@ -1,13 +1,9 @@
-const addTrigger = require('./add-trigger');
-const removeTrigger = require('./remove-trigger');
-const triggers = require('./triggers');
+const trigger = require('./trigger');
 const pso2 = require('./pso2');
 const youtube = require('./youtube');
 
 module.exports = [
-  addTrigger,
-  removeTrigger,
-  triggers,
+  trigger,
   pso2,
   youtube,
 ];
