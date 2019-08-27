@@ -1,4 +1,5 @@
 const config = {
+  storePath: process.env.STORE_PATH || '/etc/exaego',
   web: {
     port: process.env.NODEJS_PORT || 8000,
     ip: process.env.NODEJS_IP || '127.0.0.1',

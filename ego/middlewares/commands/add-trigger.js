@@ -19,7 +19,11 @@ function addTrigger(message, connector, localContext, connectorContext, globalCo
     const arguments = matches[2].split(/\s+/);
     const guild = connector.guild.getName(localMessage.guild);
     const existingTriggers = connectorContext.triggers[guild] || [];
-    connectorContext.triggers[guild] = [...new Set([...existingTriggers, ...arguments])];
+    const newTriggers = [...new Set([...existingTriggers, ...arguments])];
+    connectorContext.triggers = {
+      ...connectorContext.triggers,
+      [guild]: newTriggers,
+    };
     connector.channel.send(channel, 'Triggers added.');
   }
   return false;

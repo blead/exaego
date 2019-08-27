@@ -1,15 +1,24 @@
 const Logger = require('../utils/logger');
 const middlewares = require('./middlewares');
+const { createContext } = require('../utils/context');
 
 class Ego {
+  static id = 'exaego';
   connectors;
-  context = {
-    triggers: {},
-  };
+  context;
   logger;
 
   constructor(connectors) {
     this.connectors = connectors;
+    createContext('persistent', {
+      id: Ego.id,
+      initialValue: {
+        triggers: {},
+      },
+    })
+      .then(context => {
+        this.context = context;
+      });
     this.logger = new Logger('EGO');
     connectors.forEach(connector => {
       connector.on('message', (message, connectorContext) =>
@@ -18,16 +27,15 @@ class Ego {
   }
 
   eval(message, connector, connectorContext, globalContext) {
-    const localContext = {};
-    try {
-      for(let middleware of middlewares) {
-        if (!middleware(message, connector, localContext, connectorContext, globalContext)) {
-          break;
+    createContext()
+      .then(localContext => {
+        for(let middleware of middlewares) {
+          if (!middleware(message, connector, localContext, connectorContext, globalContext)) {
+            break;
+          }
         }
-      }
-    } catch (error) {
-      this.logger.error(error);
-    }
+      })
+      .catch(this.logger.error);
   }
 }
 

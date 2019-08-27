@@ -19,13 +19,17 @@ function removeTrigger(message, connector, localContext, connectorContext, globa
     const arguments = matches[2].split(/\s+/);
     const guild = connector.guild.getName(localMessage.guild);
     const existingTriggers = connectorContext.triggers[guild] || [];
-    connectorContext.triggers[guild] = arguments.reduce((triggers, trigger) => {
+    const newTriggers = arguments.reduce((triggers, trigger) => {
       const index = triggers.indexOf(trigger);
       if (index !== -1) {
         return triggers.slice(0, index).concat(triggers.slice(index + 1));
       }
       return triggers;
     }, existingTriggers);
+    connectorContext.triggers = {
+      ...connectorContext.triggers,
+      [guild]: newTriggers,
+    };
     connector.channel.send(channel, 'Triggers removed.');
   }
   return false;
