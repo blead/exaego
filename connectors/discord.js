@@ -48,6 +48,7 @@ class DiscordConnector extends Connector {
       id: DiscordConnector.id,
       collection: 'connectors',
       initialValue: {
+        aliases: {},
         triggers: {},
       },
     })

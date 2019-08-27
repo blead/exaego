@@ -13,6 +13,7 @@ class Ego {
     createContext('persistent', {
       id: Ego.id,
       initialValue: {
+        aliases: {},
         triggers: {},
       },
     })
