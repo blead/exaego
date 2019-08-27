@@ -17,7 +17,7 @@ function removeTrigger(message, connector, localContext, connectorContext, globa
     ].join('\n'));
   } else {
     const arguments = matches[2].split(/\s+/);
-    const guild = connector.guild.getName(localMessage.guild);
+    const guild = connector.guild.getId(localMessage.guild);
     const existingTriggers = connectorContext.triggers[guild] || [];
     const newTriggers = arguments.reduce((triggers, trigger) => {
       const index = triggers.indexOf(trigger);

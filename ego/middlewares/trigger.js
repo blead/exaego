@@ -10,10 +10,10 @@ function trigger(message, connector, localContext, connectorContext, globalConte
     return true;
   }
   const globalTriggers = globalContext.triggers[
-    connector.guild.getName(localMessage.guild)
+    connector.guild.getId(localMessage.guild)
   ] || [];
   const connectorTriggers = connectorContext.triggers[
-    connector.guild.getName(localMessage.guild)
+    connector.guild.getId(localMessage.guild)
   ] || [];
   if (
     [...globalTriggers, ...connectorTriggers]

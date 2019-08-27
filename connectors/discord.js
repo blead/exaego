@@ -12,6 +12,7 @@ class DiscordConnector extends Connector {
     send: (channel, message) => channel.send(message),
   };
   guild = {
+    getId: guild => guild.id,
     getName: guild => guild.name,
   };
   message = {

@@ -9,7 +9,7 @@ function triggers(message, connector, localContext, connectorContext, globalCont
     return true;
   }
   const channel = localMessage.channel;
-  const guild = connector.guild.getName(localMessage.guild);
+  const guild = connector.guild.getId(localMessage.guild);
   const triggers = connectorContext.triggers[guild] || [];
   if (triggers.length === 0) {
     connector.channel.send(channel, 'There are no triggers active.');
