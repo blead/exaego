@@ -2,7 +2,7 @@ const ytdl = require('ytdl-core');
 
 function youtube(message, connector, localContext, connectorContext, globalContext) {
   const localMessage = localContext.message || {};
-  const pattern = /^\s*(youtube|yt)(?:\s+(.+))*/i;
+  const pattern = /^\s*(youtube)(?:\s+(.+))*/i;
   if (!localMessage.content) {
     return true;
   }
@@ -15,13 +15,9 @@ function youtube(message, connector, localContext, connectorContext, globalConte
     connector.channel.send(channel, [
       'Usage:',
       '`youtube <url>`',
-      '`yt <url>`',
       '`youtube stop`',
-      '`yt stop`',
       '`youtube volume <volume>',
-      '`yt volume <volume>',
       '`youtube vol <volume>',
-      '`yt vol <volume>',
     ].join('\n'));
     return false;
   }

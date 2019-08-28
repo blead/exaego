@@ -16,12 +16,11 @@ function pso2(message, connector, localContext, connectorContext, globalContext)
     connector.channel.send(channel, [
       'Usage:',
       '`pso2 daily`',
-      '`pso2 do`',
     ].join('\n'));
     return false;
   }
   const arguments = matches[2].split(/\s+/);
-  if (arguments[0] === 'daily' || arguments[0] === 'do') {
+  if (arguments[0] === 'daily') {
     if (arguments[1] === 'list') {
       let targetDate = arguments[2] !== undefined ? parseDateString(arguments[2]) : new Date();
       if (!Number.isNaN(targetDate.getTime())) {
