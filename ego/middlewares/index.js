@@ -1,3 +1,4 @@
+const alias = require('./alias');
 const extract = require('./extract');
 const trigger = require('./trigger');
 const iterateCreator = require('./creators/iterate');
@@ -29,5 +30,6 @@ module.exports = [
     ''
   ),
   log,
+  alias,
   ...commands,
 ];

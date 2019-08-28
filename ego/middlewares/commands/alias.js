@@ -1,3 +1,10 @@
+const RESERVED_WORDS = [
+  'add',
+  'alias',
+  'list',
+  'remove',
+];
+
 function alias(message, connector, localContext, connectorContext, globalContext) {
   const localMessage = localContext.message || {};
   const pattern = /^\s*(alias)(?:\s+(.+))*/i;
@@ -32,7 +39,9 @@ function alias(message, connector, localContext, connectorContext, globalContext
     }
   } else if (arguments[0] === 'add') {
     const [name, value] = arguments.slice(1).join(' ').split('=').map(s => s.trim());
-    if (name && value) {
+    if (RESERVED_WORDS.includes(name)) {
+      connector.channel.send(channel, `\`${key}\` is reserved (not allowed as an alias).`);
+    } else if (name && value) {
       const newAliases = {
         ...aliases,
         [name]: value,

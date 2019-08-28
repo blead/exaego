@@ -41,7 +41,9 @@ class PersistentContext {
               [prop]: true,
             },
           });
-          delete target[prop];
+          const props = prop.split('.');
+          const lastProp = props.pop();
+          delete props.reduce((target, prop) => target[prop], target)[lastProp];
           return true;
         },
       }));
