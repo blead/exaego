@@ -60,7 +60,7 @@ function alias(message, connector, localContext, connectorContext, globalContext
   } else if (arguments[0] === 'remove') {
     if (arguments.length > 1) {
       const newAliases = { ...aliases };
-      delete newAliases[arguments[1]];
+      delete newAliases[arguments.slice(1).join(' ')];
       connectorContext.aliases = {
         ...connectorContext.aliases,
         [guild]: newAliases,
