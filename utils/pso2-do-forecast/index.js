@@ -19,7 +19,7 @@ function getDateDifference(dateA, dateB) {
 function formatDate(date, format='Y-m-d') {
   return format
     .replace('Y', date.getUTCFullYear().toString())
-    .replace('m', date.getUTCMonth().toString().padStart(2, '0'))
+    .replace('m', (date.getUTCMonth() + 1).toString().padStart(2, '0'))
     .replace('d', date.getUTCDate().toString().padStart(2, '0'));
 }
 
@@ -49,7 +49,7 @@ function forecastDailyOrders(searchString, startingDate) {
         const cycleDifference = getDateDifference(convertedDate, order.recordedDate) % order.cycleLength;
         const dateOffset = -(order.intervals
           .reduce((remainder, interval) => remainder <= 0 ? remainder : remainder - interval, cycleDifference));
-        const forecastDate = new Date(startingDate.getTime());
+        const forecastDate = new Date(convertedDate.getTime());
         forecastDate.setUTCDate(forecastDate.getUTCDate() + dateOffset);
         return [
           ...results,
