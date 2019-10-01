@@ -14,4 +14,4 @@ jobs:
       - name: deploy
         uses: actions/gcloud/cli@6a43f01e0e930f639b90eec0670e88ba3ec4aba3
         with:
-          args: compute ssh ${{ secrets.GCLOUD_INSTANCE }} --command 'cd /home/exaego/exaego && git pull && export NVM_DIR='/home/exaego/.nvm' && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && pm2 restart exaego' --force-key-file-overwrite --strict-host-key-checking=no --zone ${{ secrets.GCLOUD_ZONE }}
+          args: compute ssh ${{ secrets.GCLOUD_INSTANCE }} --command 'cd /home/exaego/exaego && git pull && export NVM_DIR='/home/exaego/.nvm' && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && pm2 restart exaego' --force-key-file-overwrite --strict-host-key-checking=no --zone ${{ secrets.GCLOUD_ZONE }} --project ${{ secrets.GCLOUD_PROJECT }}
