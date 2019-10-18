@@ -1,4 +1,7 @@
-function extract(message, connector, localContext, connectorContext, globalContext) {
+const { connectorManager } = require('../../connector');
+
+function extract(message, localContext) {
+  const connector = connectorManager.getConnector(localContext.connectorId);
   localContext.message = {
     ...localContext.message,
     content: connector.message.getMessageContent(message),

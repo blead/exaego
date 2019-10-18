@@ -1,11 +1,10 @@
 const Discord = require('discord.js');
 const Connector = require('./connector');
 const Logger = require('../utils/logger');
-const { createContext } = require('../utils/context');
+const { contextManager } = require('../context');
 
 class DiscordConnector extends Connector {
-  static id = 'discord';
-  context;
+  id = 'discord';
   discord;
   logger;
   channel = {
@@ -42,19 +41,19 @@ class DiscordConnector extends Connector {
       }),
   };
 
-  constructor(config) {
-    super();
-    createContext('persistent', {
-      id: DiscordConnector.id,
+  constructor(connectorManager, config) {
+    if (config.id) {
+      this.id = config.id;
+    }
+    super(connectorManager, this.id);
+    contextManager.createContext('persistent', {
+      id: this.id,
       collection: 'connectors',
       initialValue: {
         aliases: {},
         triggers: {},
       },
-    })
-      .then(context => {
-        this.context = context;
-      });
+    });
     this.discord = new Discord.Client();
     this.logger = new Logger('DISCORD');
     this.user.self.bind(this);
@@ -64,7 +63,7 @@ class DiscordConnector extends Connector {
           .catch(this.logger.error);
         this.logger.log('client ready');
       })
-      .on('message', message => this.emit('message', message, this.context))
+      .on('message', message => this.emit('message', message))
       .on('warn', this.logger.log)
       .on('error', this.logger.error)
       .login(config.token)

@@ -6,15 +6,18 @@ const { getPromise } = require('../../utils/get-promise')
 class PersistentContext {
   static compactionInterval = 86400000;
   static collections = [];
+  contextManager;
   store;
 
-  constructor({ id, collection='global', initialValue={} }) {
+  constructor({ id, collection='global', initialValue={} }, contextManager) {
     if (!PersistentContext.collections.includes(collection)) {
       const filename = path.join(config.storePath, collection);
       PersistentContext.collections[collection] = new Datastore({ filename, autoload: true });
       PersistentContext.collections[collection].persistence.setAutocompactionInterval(PersistentContext.compactionInterval);
       PersistentContext.collections[collection].ensureIndex({ fieldName: 'id', unique: true });
     }
+    this.contextManager = contextManager;
+    contextManager.register(id, this);
     this.store = PersistentContext.collections[collection];
     return getPromise(this.store.findOne, this.store, { id })
       .then(document => {

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const http = require('http');
 const config = require('./config');
-const connectors = require('./connectors');
+const { connectorManager, connectors } = require('./connector');
 const Ego = require('./ego');
 const Logger = require('./utils/logger');
 
@@ -9,7 +9,8 @@ if (!fs.existsSync(config.storePath)) {
   fs.mkdirSync(config.storePath);
 }
 
-const ego = new Ego(connectors.map(Connector => new Connector(config[Connector.id])));
+connectors.forEach(Connector => new Connector(connectorManager, config[Connector.id]));
+const ego = new Ego();
 
 const webLogger = new Logger('WEB');
 

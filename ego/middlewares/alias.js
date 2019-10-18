@@ -1,7 +1,12 @@
 const { escapeRegex } = require('../../utils/regex');
+const { connectorManager } = require('../../connector');
+const { contextManager } = require('../../context');
 
-function alias(message, connector, localContext, connectorContext, globalContext) {
+function alias(message, localContext) {
   const localMessage = localContext.message || {};
+  const connector = connectorManager.getConnector(localContext.connectorId);
+  const globalContext = contextManager.getContext(localContext.egoId);
+  const connectorContext = contextManager.getContext(localContext.connectorId);
   const globalAliases = globalContext.aliases[
     connector.guild.getId(localMessage.guild)
   ] || {};

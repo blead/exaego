@@ -1,11 +1,11 @@
 function replaceCreator(patternSource, replacementSource) {
-  return function (message, connector, localContext, connectorContext, globalContext) {
+  return function (message, localContext) {
     const localMessage = localContext.message || { content: '' };
     const pattern = typeof patternSource === 'function' ?
-      patternSource(message, connector, localContext, connectorContext, globalContext) :
+      patternSource(message, localContext) :
       patternSource;
     const replacement = typeof replacementSource === 'function' ?
-      replacementSource(message, connector, localContext, connectorContext, globalContext) :
+      replacementSource(message, localContext) :
       replacementSource;
     localContext.message = {
       ...localMessage,

@@ -1,6 +1,6 @@
 {
   "name": "exaego",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "simple discord bot",
   "private": true,
   "main": "main.js",
@@ -10,6 +10,7 @@
   "author": "blead",
   "license": "ISC",
   "dependencies": {
+    "commander": "^3.0.2",
     "discord.js": "^11.5.1",
     "nedb": "^1.8.0",
     "node-opus": "^0.3.2",

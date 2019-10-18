@@ -1,5 +1,11 @@
-function trigger(message, connector, localContext, connectorContext, globalContext) {
+const { connectorManager } = require('../../connector');
+const { contextManager } = require('../../context');
+
+function trigger(message, localContext) {
   const localMessage = localContext.message || {};
+  const connector = connectorManager.getConnector(localContext.connectorId);
+  const globalContext = contextManager.getContext(localContext.egoId);
+  const connectorContext = contextManager.getContext(localContext.connectorId);
   if (localMessage.author == connector.user.self()) {
     return false;
   }
