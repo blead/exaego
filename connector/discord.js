@@ -42,7 +42,7 @@ class DiscordConnector extends Connector {
       }),
   };
 
-  constructor(config) {
+  constructor({ config }) {
     super();
     createContext('persistent', {
       id: DiscordConnector.id,
@@ -58,6 +58,7 @@ class DiscordConnector extends Connector {
     this.discord = new Discord.Client();
     this.logger = new Logger('DISCORD');
     this.user.self.bind(this);
+
     this.discord
       .on('ready', () => {
         this.discord.user.setActivity(config.activity)

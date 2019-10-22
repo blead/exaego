@@ -1,7 +1,7 @@
 const fs = require('fs');
 const http = require('http');
 const config = require('./config');
-const connectors = require('./connectors');
+const connectors = require('./connector');
 const Ego = require('./ego');
 const Logger = require('./utils/logger');
 
@@ -9,11 +9,13 @@ if (!fs.existsSync(config.storePath)) {
   fs.mkdirSync(config.storePath);
 }
 
-const ego = new Ego(connectors.map(Connector => new Connector(config[Connector.id])));
+const ego = new Ego({
+  connectors: Object.values(connectors).map(Connector => new Connector({ config: config[Connector.id] })),
+});
 
 const webLogger = new Logger('WEB');
 
-const web = http.createServer((request,response) => {
+const web = http.createServer((request, response) => {
   const message = 'Redirecting to GitHub!';
   response.writeHead(301, {
     'Location' : 'https://github.com/blead/exaego',

@@ -1,4 +1,4 @@
-function extract(message, connector, localContext, connectorContext, globalContext) {
+function extract({ message, connector, localContext }) {
   localContext.message = {
     ...localContext.message,
     content: connector.message.getMessageContent(message),

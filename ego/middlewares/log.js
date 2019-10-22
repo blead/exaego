@@ -1,4 +1,4 @@
-function log(message, connector, localContext, connectorContext, globalContext) {
+function log({ connector, localContext }) {
   connector.logger.log(localContext.message.content);
   return true;
 }

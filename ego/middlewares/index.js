@@ -1,33 +1,23 @@
 const alias = require('./alias');
 const extract = require('./extract');
-const trigger = require('./trigger');
+const getTriggers = require('./get-triggers');
+const isTrigger = require('./is-trigger');
 const iterateCreator = require('./creators/iterate');
 const replaceCreator = require('./creators/replace');
 const commands = require('./commands');
 const log = require('./log');
 const { escapeRegex } = require('../../utils/regex');
 
-function getTriggers(message, connector, localContext, connectorContext, globalContext) {
-  const localMessage = localContext.message || {};
-  const globalTriggers = globalContext.triggers[
-    connector.guild.getId(localMessage.guild)
-  ] || [];
-  const connectorTriggers = connectorContext.triggers[
-    connector.guild.getId(localMessage.guild)
-  ] || [];
-  return globalTriggers.concat(connectorTriggers)
-    .map(escapeRegex)
-    .map(pattern => new RegExp(`^${pattern}`));
-}
-
 module.exports = [
   extract,
-  trigger,
+  isTrigger,
+  // remove triggers
   iterateCreator(getTriggers, replaceCreator, ''),
+  // remove self mentions
   iterateCreator(
-    (message, connector) => [new RegExp(escapeRegex(connector.user.self().toString()), 'g')],
+    ({ connector }) => [new RegExp(escapeRegex(connector.user.self().toString()), 'g')],
     replaceCreator,
-    ''
+    '',
   ),
   log,
   alias,

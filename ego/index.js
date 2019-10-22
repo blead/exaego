@@ -8,7 +8,7 @@ class Ego {
   context;
   logger;
 
-  constructor(connectors) {
+  constructor({ connectors }) {
     this.connectors = connectors;
     createContext('persistent', {
       id: Ego.id,
@@ -21,17 +21,18 @@ class Ego {
         this.context = context;
       });
     this.logger = new Logger('EGO');
+
     connectors.forEach(connector => {
       connector.on('message', (message, connectorContext) =>
-        this.eval(message, connector, connectorContext, this.context));
+        this.eval({ message, connector, connectorContext, globalContext: this.context }));
     });
   }
 
-  eval(message, connector, connectorContext, globalContext) {
+  eval(contexts) {
     createContext()
       .then(localContext => {
         for(let middleware of middlewares) {
-          if (!middleware(message, connector, localContext, connectorContext, globalContext)) {
+          if (!middleware({ ...contexts, localContext })) {
             break;
           }
         }

@@ -1,4 +1,4 @@
-function trigger(message, connector, localContext, connectorContext, globalContext) {
+function trigger({ message, connector, localContext, connectorContext, globalContext }) {
   const localMessage = localContext.message || {};
   if (localMessage.author == connector.user.self()) {
     return false;
@@ -19,7 +19,7 @@ function trigger(message, connector, localContext, connectorContext, globalConte
     [...globalTriggers, ...connectorTriggers]
       .reduce(
         (previous, current) => (previous || localMessage.content.startsWith(current)),
-        false
+        false,
       )
   ) {
     return true;

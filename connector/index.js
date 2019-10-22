@@ -1,5 +1,5 @@
 const DiscordConnector = require('./discord');
 
-module.exports = [
+module.exports = {
   DiscordConnector,
-];
+};
