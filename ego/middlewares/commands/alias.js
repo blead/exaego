@@ -7,7 +7,7 @@ const RESERVED_WORDS = [
 
 function alias(message, connector, localContext, connectorContext, globalContext) {
   const localMessage = localContext.message || {};
-  const pattern = /^\s*(alias)(?:\s+(.+))*/i;
+  const pattern = /(alias)(?:\s+(.+))*/i;
   if (!localMessage.content) {
     return true;
   }

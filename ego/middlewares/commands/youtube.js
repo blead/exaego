@@ -2,7 +2,7 @@ const ytdl = require('ytdl-core');
 
 function youtube(message, connector, localContext, connectorContext, globalContext) {
   const localMessage = localContext.message || {};
-  const pattern = /^\s*(youtube)(?:\s+(.+))*/i;
+  const pattern = /(youtube)(?:\s+(.+))*/i;
   if (!localMessage.content) {
     return true;
   }

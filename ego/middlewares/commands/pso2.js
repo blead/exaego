@@ -3,7 +3,7 @@ const { parseDateString } = require('../../../utils/date');
 
 function pso2(message, connector, localContext, connectorContext, globalContext) {
   const localMessage = localContext.message || {};
-  const pattern = /^\s*(pso2)(?:\s+(.+))*/i;
+  const pattern = /(pso2)(?:\s+(.+))*/i;
   if (!localMessage.content) {
     return true;
   }
