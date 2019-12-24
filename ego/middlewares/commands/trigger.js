@@ -1,6 +1,6 @@
 function trigger(message, connector, localContext, connectorContext, globalContext) {
   const localMessage = localContext.message || {};
-  const pattern = /^\s*(trigger)(?:\s+(.+))*/i;
+  const pattern = /(trigger)(?:\s+(.+))*/i;
   if (!localMessage.content) {
     return true;
   }

@@ -1,6 +1,6 @@
 {
   "name": "exaego",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "simple discord bot",
   "private": true,
   "main": "main.js",
