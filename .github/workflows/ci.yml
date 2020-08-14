@@ -7,11 +7,10 @@ jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - name: gcloud auth
-        uses: actions/gcloud/auth@6a43f01e0e930f639b90eec0670e88ba3ec4aba3
-        env:
-          GCLOUD_AUTH: ${{ secrets.GCLOUD_AUTH }}
       - name: deploy
-        uses: actions/gcloud/cli@6a43f01e0e930f639b90eec0670e88ba3ec4aba3
+        uses: actions-hub/gcloud@305.0.0
+        env:
+          PROJECT_ID: ${{ secrets.GCLOUD_PROJECT }}
+          APPLICATION_CREDENTIALS: ${{ secrets.GCLOUD_AUTH }}
         with:
           args: compute ssh ${{ secrets.GCLOUD_INSTANCE }} --command 'cd /home/exaego/exaego && git pull && export NVM_DIR='/home/exaego/.nvm' && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && pm2 restart exaego' --force-key-file-overwrite --strict-host-key-checking=no --zone ${{ secrets.GCLOUD_ZONE }} --project ${{ secrets.GCLOUD_PROJECT }} --quiet
