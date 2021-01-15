@@ -43,7 +43,7 @@ function youtube(message, connector, localContext, connectorContext, globalConte
     const voiceChannel = connector.user.getVoiceChannel(localMessage.author, localMessage.guild);
     connector.voiceChannel.join(voiceChannel)
       .then((connection) => {
-        const stream = ytdl(arguments[0], { quality: 'highestaudio', highWaterMark: 1<<24 /* 16mb */ });
+        const stream = ytdl(arguments[0], { quality: 'highestaudio', filter: 'audioonly', highWaterMark: 1<<29 /* 512mb */ });
         connectorContext.voiceChannel = voiceChannel;
         return connector.voiceConnection.playStream(connection, stream, streamOptions);
       })
