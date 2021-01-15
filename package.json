@@ -13,6 +13,6 @@
     "discord.js": "^11.6.4",
     "nedb": "^1.8.0",
     "@discordjs/opus": "^0.3.2",
-    "ytdl-core": "^3.2.1"
+    "ytdl-core": "^4.4.3"
   }
 }
