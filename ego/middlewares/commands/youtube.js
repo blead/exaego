@@ -41,26 +41,23 @@ function youtube(message, connector, localContext, connectorContext, globalConte
   } else {
     const streamOptions = localContext.streamOptions || {};
     const voiceChannel = connector.user.getVoiceChannel(localMessage.author, localMessage.guild);
-    return new Promise((resolve) => {
-      if (connectorContext.voiceChannel) {
-        connectorContext.voiceChannel = null;
-        resolve(connector.voiceChannel.leave(connectorContext.voiceChannel));
-      }
-      resolve();
-    })
-    .then(() => connector.voiceChannel.join(voiceChannel))
-    .then((connection) => {
-      const stream = ytdl(arguments[0], { quality: 'highestaudio', filter: 'audioonly', highWaterMark: 1<<29 /* 512mb */ });
-      connectorContext.voiceChannel = voiceChannel;
-      return connector.voiceConnection.playStream(connection, stream, streamOptions);
-    })
-    .then(() => {
+    if (connectorContext.voiceChannel) {
+      connector.voiceChannel.leave(connectorContext.voiceChannel);
       connectorContext.voiceChannel = null;
-      return connector.voiceChannel.leave(voiceChannel);
-    })
-    .catch(error => {
-      throw error;
-    });
+    }
+    connector.voiceChannel.join(voiceChannel)
+      .then((connection) => {
+        const stream = ytdl(arguments[0], { quality: 'highestaudio', filter: 'audioonly', highWaterMark: 1<<29 /* 512mb */ });
+        connectorContext.voiceChannel = voiceChannel;
+        return connector.voiceConnection.playStream(connection, stream, streamOptions);
+      })
+      .then(() => {
+        connectorContext.voiceChannel = null;
+        return connector.voiceChannel.leave(voiceChannel);
+      })
+      .catch(error => {
+        throw error;
+      });
   }
   return false;
 }
