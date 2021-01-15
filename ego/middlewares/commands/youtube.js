@@ -23,9 +23,9 @@ function youtube(message, connector, localContext, connectorContext, globalConte
   }
   const arguments = matches[2].split(/\s+/);
   if (arguments[0] === 'stop') {
-    const voiceChannel = connectorContext.voiceChannel;
-    if (voiceChannel) {
-      connector.voiceChannel.leave(voiceChannel);
+    if (connectorContext.voiceChannel) {
+      connectorContext.voiceChannel = null;
+      connector.voiceChannel.leave(connectorContext.voiceChannel);
     }
   } else if (arguments[0] === 'volume' || arguments[0] === 'vol') {
     if (arguments[1] !== undefined && !Number.isNaN(new Number(arguments[1]))) {
@@ -42,7 +42,7 @@ function youtube(message, connector, localContext, connectorContext, globalConte
     const streamOptions = localContext.streamOptions || {};
     const voiceChannel = connector.user.getVoiceChannel(localMessage.author, localMessage.guild);
     if (connectorContext.voiceChannel) {
-      delete connectorContext.voiceChannel;
+      connectorContext.voiceChannel = null;
       connector.voiceChannel.leave(connectorContext.voiceChannel);
     }
     connector.voiceChannel.join(voiceChannel)
@@ -52,7 +52,7 @@ function youtube(message, connector, localContext, connectorContext, globalConte
         return connector.voiceConnection.playStream(connection, stream, streamOptions);
       })
       .then(() => {
-        delete connectorContext.voiceChannel;
+        connectorContext.voiceChannel = null;
         return connector.voiceChannel.leave(voiceChannel);
       })
       .catch(error => {
