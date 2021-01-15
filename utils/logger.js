@@ -1,3 +1,5 @@
+const util = require('util');
+
 class Logger {
   prefix;
   constructor(prefix) {
