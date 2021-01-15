@@ -6,9 +6,15 @@ class Logger {
     this.error = this.error.bind(this);
   }
   log(message) {
+    if (typeof message === 'object') {
+      message = util.inspect(message);
+    }
     console.log(`${new Date().toISOString()} ${this.prefix} ${message}`);
   }
   error(message) {
+    if (typeof message === 'object') {
+      message = util.inspect(message);
+    }
     console.error(`${new Date().toISOString()} ${this.prefix} ${message}`);
   }
 }
